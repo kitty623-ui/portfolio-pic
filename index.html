@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Kitty Chen – Portfolio</title>
+
+  <style>
+    :root {
+      --bg-page: #f0ece6;
+      --bg-cream: #ffe9d4;
+      --bg-nav: #e9c9aa;
+      --bg-card: #ffe4c8;
+      --bg-footer: #ffe4c8;
+      --text-main: #2b2622;
+      --text-muted: #7a6d63;
+      --accent-red: #de2910;
+      --radius-lg: 22px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg-page);      /* 外面的灰色背景 */
+      color: var(--text-main);
+    }
+
+    a {
+      color: var(--text-main);
+      text-decoration: none;
+    }
+    a:visited { color: var(--text-main); }
+    a:hover { text-decoration: underline; }
+    a:active { color: #000; }
+
+    /* ====== 新增：最外层 1440px 框，控制上下左右 120px 空白 ====== */
+    .frame {
+      width: 1440px;            /* 1200 内容 + 左右各 120 */
+      margin: 0 auto;
+      padding: 120px 0;         /* 上下 120px 空白 */
+    }
+
+    .page-wrapper {
+    width: 1200px;
+    height: 2160px;
+    background: #ffffff;
+    overflow: hidden;      /* 不要让内容溢出 */
+    margin: 0 auto;
+    border-radius: 0;      /* 整个页面四角无圆角 */
+    display: flex;
+    flex-direction: column;
+  }
+
+    main { flex: 1; }
+
+    .container {
+      width: 1200px;
+      margin: 0 auto;
+      padding: 0 40px 0 40px;   /* 视情况加一点内边距，可调 */
+      box-sizing: border-box;
+    }
+
+    /* ========== SECTION 1: TOP HERO (PORTFOLIO) ========== */
+
+    .hero-inner {
+      width: 100%;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+      box-sizing: border-box;
+    }
+
+    .portfolio-title-box {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+
+    .portfolio-title-box img {
+      max-width: 1200px;  
+      height: auto;
+    }
+
+    .nav-strip {
+      background: #fbe0c5;
+      margin-top: -8px;
+    }
+
+    .nav-inner {
+      width: 100%;
+      padding: 60px 40px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 100px;
+      font-size: 15px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      box-sizing: border-box;
+    }
+                                                                                     
+    .nav-link {
+      color: #a66a40;
+      font-weight: 500;
+    }
+    .nav-link--active {
+      color: var(--accent-red);
+      font-weight: 700;
+    }
+
+    /* ========== SECTION 2: HELLO CARD ========== */
+
+    .hello-section {
+      padding: 48px 40px 40px;
+      background: #ffffff;
+      box-sizing: border-box;
+    }
+
+    .hello-card {
+      background: var(--bg-card);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      display: grid;
+      grid-template-columns: 0.95fr 1.35fr;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .hello-photo-frame { position: relative; padding: 22px; }
+
+    .hello-photo-circle {
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin: 0 auto;
+      background: #ddd;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .hello-photo-circle img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .hello-text-heading {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 6px 16px;
+      background: #fff;
+      border-radius: 999px;
+      font-size: 14px;
+      margin-bottom: 12px;
+    }
+
+    .hello-text-heading span {
+      font-weight: 700;
+      color: var(--accent-red);
+    }
+
+    .hello-body {
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--text-main);
+      max-width: 520px;
+    }
+
+    /* ========== SECTION 3: PROJECTS ========== */
+
+    .projects-section {
+      padding: 16px 40px 50px;
+      background: #ffffff;
+      box-sizing: border-box;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 26px;
+    }
+
+    .project-card {
+      border-radius: 24px;
+      padding: 28px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #ffd47f; /* 左边卡片底色，可自己换 */
+    }
+    .project-card--middle { background: #f3d2b3; }
+    .project-card--right  { background: #f96b5b; }
+
+    .project-card-wrapper { position: relative; }
+
+    .project-card-inner {
+      width: 100%;
+      height: 260px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.85);
+      border: 1px dashed rgba(0,0,0,0.16);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      color: var(--text-muted);
+      text-align: center;
+    }
+
+    .project-number {
+      position: absolute;
+      bottom: 18px;
+      right: 26px;
+      font-size: 28px;
+      font-weight: 700;
+      color: #ffffff;
+      opacity: 0.9;
+    }
+
+    /* ========== FOOTER ========== */
+
+    .site-footer {
+      background: var(--bg-footer);
+      border-top: 1px solid #e0c9af;
+      padding: 18px 40px 22px;
+      box-sizing: border-box;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 14px;
+    }
+
+    .footer-left { line-height: 1.6; }
+
+    .footer-icons {
+      margin-top: 8px;
+      display: flex;
+      gap: 16px;
+      font-size: 18px;
+    }
+
+  </style>
+</head>
+<body>
+
+<div class="frame"><!-- 控制上下左右 120px 空白 -->
+
+  <div class="page-wrapper"><!-- 1200px 白色内容区 -->
+
+    <!-- SECTION 1: TOP HERO + NAV -->
+    <header class="hero-top">
+      <div class="hero-inner">
+        <div class="portfolio-title-box">
+          <!-- 用你的 “PORTFOLIO” 图片替换 -->
+          <img src="Group 30 (1).png" alt="Portfolio title">
+        </div>
+      </div>
+
+      <div class="nav-strip">
+        <div class="nav-inner">
+          <a class="nav-link" href="resume.html">RESUME</a>
+          <a class="nav-link nav-link--active" href="index.html">PROJECT 1</a>
+          <a class="nav-link" href="project-hotpot.html">PROJECT 2</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+
+      <!-- SECTION 2: HELLO -->
+      <section class="hello-section" id="hello">
+        <div class="hello-card">
+          <div class="hello-photo-frame">
+            <div class="hello-photo-circle">
+              <img src="images/profile.jpg" alt="Portrait of Kitty Chen">
+            </div>
+          </div>
+
+          <div>
+            <div class="hello-text-heading">
+              <span>Hello!</span>
+            </div>
+            <div class="hello-body">
+              I’m a second-year Global Business and Digital Arts student at the
+              University of Waterloo, motivated and detail-oriented, passionate
+              about creating intuitive and meaningful digital experiences...
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 3: PROJECT CARDS -->
+      <section class="projects-section" id="projects">
+        <div class="projects-grid">
+
+          <div class="project-card">
+            <div class="project-card-wrapper">
+              <div class="project-card-inner">
+                <!-- Burger Ops 封面图 -->
+                <span>Project 01 image (Burger Ops)</span>
+              </div>
+              <div class="project-number">01</div>
+            </div>
+          </div>
+
+          <div class="project-card project-card--middle">
+            <div class="project-card-wrapper">
+              <div class="project-card-inner">
+                <span>Project 02 image</span>
+              </div>
+              <div class="project-number">02</div>
+            </div>
+          </div>
+
+          <div class="project-card project-card--right">
+            <div class="project-card-wrapper">
+              <div class="project-card-inner">
+                <span>Project 03 image (Haidilao)</span>
+              </div>
+              <div class="project-number">03</div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div class="footer-left">
+          <strong>Get in touch with me</strong><br>
+          316 Batavia Pl, Waterloo, ON N2L 3W2
+        </div>
+        <div>
+          📞 647-607-4551<br>
+          ✉️ <a href="mailto:y555chen@uwaterloo.ca">y555chen@uwaterloo.ca</a>
+          <div class="footer-icons">
+            <span>in</span><span>ig</span><span>x</span><span>fb</span>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  </div><!-- /.page-wrapper -->
+
+</div><!-- /.frame -->
+
+</body>
+</html>
