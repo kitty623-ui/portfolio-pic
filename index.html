@@ -224,7 +224,7 @@
 
     .project-number {
       position: absolute;
-      bottom: 8px;
+      bottom: -12px;
       right: 12px;
       font-size: 70px;
       font-weight: 700;
@@ -244,7 +244,7 @@
     .resume-header {
       display: grid;
       grid-template-columns: 1.1fr 1.4fr;
-      gap: 40px;
+      gap: 10px;
       margin-bottom: 48px;
       align-items: center;
     }
@@ -266,7 +266,7 @@
 
     .resume-header-right h1 {
       margin: 0 0 16px;
-      font-size: 32px;
+      font-size: 45px;
       letter-spacing: 0.03em;
     }
 
@@ -274,7 +274,7 @@
       list-style: none;
       margin: 0;
       padding: 0;
-      font-size: 15px;
+      font-size: 22px;
       line-height: 1.8;
     }
 
@@ -291,7 +291,7 @@
 
     .resume-body {
       display: grid;
-      grid-template-columns: 1.9fr 1.1fr;
+      grid-template-columns: 2fr 1fr;
       gap: 40px;
     }
 
@@ -302,14 +302,14 @@
       border-radius: 999px;
       border: 2px solid #c24a2c;
       font-weight: 600;
-      font-size: 14px;
+      font-size: 20px;
       margin-bottom: 18px;
       background: var(--bg-resume);
     }
 
     .job {
       margin-bottom: 28px;
-      font-size: 14px;
+      font-size: 18px;
       line-height: 1.7;
     }
 
@@ -322,7 +322,7 @@
     }
 
     .job-title {
-      font-size: 15px;
+      font-size: 20px;
     }
 
     .job-date {
@@ -348,7 +348,7 @@
       background: #ffe9d4;
       border-radius: 18px;
       padding: 16px 18px 14px;
-      font-size: 13px;
+      font-size: 17px;
       line-height: 1.6;
     }
 
@@ -358,7 +358,7 @@
       padding: 4px 14px;
       border-radius: 999px;
       border: 2px solid #c24a2c;
-      font-size: 12px;
+      font-size: 20px;
       font-weight: 600;
       margin-bottom: 10px;
       background: #ffe0c4;
@@ -366,7 +366,7 @@
 
     .side-card h3 {
       margin: 0 0 6px;
-      font-size: 13px;
+      font-size: 20px;
     }
 
     .side-card p {
@@ -382,6 +382,48 @@
     .tag-list li::before {
       content: "• ";
     }
+    
+    .skills-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 24px;
+  font-size: 18px;
+  background: #ffe9d4;            /* 和 side-card 保持同一色系 */
+  border-radius: 12px;
+  overflow: hidden;               /* 让圆角生效 */
+}
+
+.skills-table caption {
+  caption-side: top;
+  text-align: left;
+  font-weight: 600;
+  font-size: 20px;
+  padding: 10px 12px 4px;
+  color: #2b2622;
+}
+
+.skills-table th,
+.skills-table td {
+  padding: 10px 12px;
+  text-align: left;
+}
+
+.skills-table thead {
+  background: #f0c4a5;
+}
+
+.skills-table th {
+  font-weight: 600;
+}
+
+.skills-table tbody tr:nth-child(even) {
+  background: #ffe4c8;
+}
+
+.skills-table tbody tr:nth-child(odd) {
+  background: #ffe9d4;
+}
+
 
     /* ========== FOOTER ========== */
 
@@ -511,7 +553,6 @@
           <!-- 左列：Experience -->
           <div class="experience-block">
             <div class="section-pill">Experience</div>
-
             <article class="job">
               <div class="job-header">
                 <div class="job-title">High School Yearbook Designer</div>
@@ -522,6 +563,35 @@
                 <li>Coordinated with photographers and editors to manage content deadlines and maintain design quality.</li>
                 <li>Enhanced overall publication aesthetics, resulting in positive student feedback and increased yearbook sales.</li>
               </ul>
+              <!-- Skills Overview Table -->
+<table class="skills-table">
+  <caption>Skills Overview</caption>
+  <thead>
+    <tr>
+      <th>Category</th>
+      <th>Skill</th>
+      <th>Level</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Design</td>
+      <td>UI Layout, Visual Design</td>
+      <td>Intermediate</td>
+    </tr>
+    <tr>
+      <td>Tools</td>
+      <td>Figma, Photoshop, Illustrator</td>
+      <td>Intermediate</td>
+    </tr>
+    <tr>
+      <td>Coding</td>
+      <td>HTML, CSS, basic JavaScript</td>
+      <td>Beginner</td>
+    </tr>
+  </tbody>
+</table>
+
             </article>
 
             <article class="job">
@@ -573,21 +643,6 @@
                 <li>#Attention to detail</li>
                 <li>#Quick learner</li>
               </ul>
-            </div>
-
-            <div class="side-card">
-              <div class="side-card-title">Coding (basic)</div>
-              <ul class="tag-list">
-                <li>JavaScript</li>
-                <li>HTML</li>
-                <li>CSS</li>
-              </ul>
-            </div>
-
-            <div class="side-card">
-              <div class="side-card-title">Design Tools</div>
-              <p>Adobe Photoshop, Illustrator, InDesign</p>
-              <p>Figma, other prototyping tools</p>
             </div>
 
           </aside>
