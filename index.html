@@ -5,39 +5,22 @@
   <title>Kitty Chen – Portfolio</title>
 
   <style>
-    :root {
-      --bg-page: #f0ece6;
-      --bg-cream: #ffe9d4;
-      --bg-nav: #e4c9b1;
-      --bg-card: #ffe4c8;
-      --bg-footer: #ffe4c8;
-      --bg-resume: #f4cfb3;
-      --text-main: #2b2622;
-      --text-muted: #7a6d63;
-      --accent-red: #de2910;
-      --radius-lg: 22px;
-    }
-
     * {
       box-sizing: border-box;
     }
 
-    html {
-      scroll-behavior: smooth; /* 导航点击时平滑滚动 */
-    }
-
     body {
       margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: var(--bg-page);      /* 外面的灰色背景 */
-      color: var(--text-main);
+      font-family: "Anonymous Pro", serif;
+      background: #f0ece6;      /* 外面的灰色背景 */
+      color: #2b2622;
     }
 
     a {
-      color: var(--text-main);
+      color: #2b2622;
       text-decoration: none;
     }
-    a:visited { color: var(--text-main); }
+    a:visited { color: #2b2622; }
     a:hover { text-decoration: underline; }
     a:active { color: #000; }
 
@@ -84,8 +67,8 @@
     }
 
     .nav-strip {
-      background: var(--bg-nav);
-      margin-top: -25px;        /* 把 bar 拉近图片 */
+      background: #e4c9b1;
+      margin-top: -25px; 
     }
 
     .nav-inner {
@@ -106,13 +89,13 @@
     }
 
     .nav-link--active {
-      color: var(--accent-red);
+      color: #de2910;
       font-weight: 700;
     }
 
     .nav-link:hover {
-      color: var(--accent-red);
-      text-decoration: none;
+      color: #de2910;
+      text-decoration: underline;
     }
 
     /* ========== SECTION 2: HELLO ========== */
@@ -124,8 +107,8 @@
     }
 
     .hello-card {
-      background: var(--bg-card);
-      border-radius: var(--radius-lg);
+      background: #ffe4c8;
+      border-radius: 22px;
       padding: 40px 32px;
       display: grid;
       grid-template-columns: 0.95fr 1.35fr;
@@ -150,7 +133,7 @@
       align-items: center;
       justify-content: center;
       font-size: 20px;
-      color: var(--text-muted);
+      color: #7a6d63;
     }
 
     .hello-photo-circle img {
@@ -180,7 +163,7 @@
     .hello-body {
       font-size: 22px;
       line-height: 1.7;
-      color: var(--text-main);
+      color: #2b2622;
       max-width: 650px;
     }
 
@@ -237,7 +220,7 @@
 
     .resume-section {
       margin-top: 40px;
-      background: var(--bg-resume);
+      background: #f4cfb3;
       padding: 48px 72px 40px;
     }
 
@@ -271,11 +254,10 @@
     }
     
     .resume-intro {
-  font-size: 20px;
-  line-height: 1.7;
-  margin: 0;
-}
-
+      font-size: 20px;
+      line-height: 1.7;
+      margin: 0;
+    }
 
     .contact-list {
       list-style: none;
@@ -309,9 +291,9 @@
       border-radius: 999px;
       border: 2px solid #c24a2c;
       font-weight: 600;
-      font-size: 20px;
+      font-size: 22px;
       margin-bottom: 18px;
-      background: var(--bg-resume);
+      background: #f4cfb3;
     }
 
     .job {
@@ -333,7 +315,7 @@
     }
 
     .job-date {
-      font-size: 13px;
+      font-size: 18px;
     }
 
     .job ul {
@@ -355,7 +337,7 @@
       background: #ffe9d4;
       border-radius: 18px;
       padding: 16px 18px 14px;
-      font-size: 17px;
+      font-size: 18px;
       line-height: 1.6;
     }
 
@@ -387,70 +369,58 @@
     }
     
     .skills-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 0;          /* 让表格顶端和右边卡片对齐 */
-  margin-bottom: 40px; 
-  font-size: 18px;
-  background: #ffe9d4;            /* 和 side-card 保持同一色系 */
-  border-radius: 12px;
-  overflow: hidden;               /* 让圆角生效 */
-}
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 40px;
+      font-size: 18px;
+      background: #ffe9d4;
+      border-radius: 12px;
+      overflow: hidden;
+    }
 
-.skills-table caption {
-  caption-side: top;
-  text-align: left;
-  font-weight: 600;
-  font-size: 20px;
-  padding: 10px 12px 40px;
-  color: #2b2622;
-}
+    .skills-table th,
+    .skills-table td {
+      padding: 10px 12px;
+      text-align: left;
+    }
 
-.skills-table th,
-.skills-table td {
-  padding: 10px 12px;
-  text-align: left;
-}
+    .skills-table thead {
+      background: #f0c4a5;
+    }
 
-.skills-table thead {
-  background: #f0c4a5;
-}
+    .skills-table th {
+      font-weight: 600;
+    }
 
-.skills-table th {
-  font-weight: 600;
-}
+    .skills-table tbody tr:nth-child(even) {
+      background: #ffe4c8;
+    }
 
-.skills-table tbody tr:nth-child(even) {
-  background: #ffe4c8;
-}
-
-.skills-table tbody tr:nth-child(odd) {
-  background: #ffe9d4;
-}
-
+    .skills-table tbody tr:nth-child(odd) {
+      background: #ffe9d4;
+    }
 
     /* ========== FOOTER ========== */
 
     .site-footer {
-      background: var(--bg-footer);
+      background: #ffe4c8;
       border-top: 1px solid #e0c9af;
       padding: 40px 40px 40px;
       box-sizing: border-box;
     }
 
     /* 让侧栏和联系信息里的邮箱看起来更像可以点击的链接 */
-.side-card a,
-.footer-inner a {
-  text-decoration: none;
-  color: #c24a2c;
-}
+    .side-card a,
+    .footer-inner a {
+      text-decoration: none;
+      color: #c24a2c;
+    }
 
-.side-card a:hover,
-.footer-inner a:hover {
-  text-decoration: underline;
-  opacity: 0.85;
-}
-
+    .side-card a:hover,
+    .footer-inner a:hover {
+      text-decoration: underline;
+      opacity: 0.85;
+    }
 
     .footer-left {
       line-height: 1.6;
@@ -541,93 +511,89 @@
             </div>
           </div>
 
-<div class="resume-header-right">
-  <h1>I’m Kitty Chen.</h1>
-  <p class="resume-intro">
-I’m a GBDA student and emerging UI/UX designer who cares about how people feel when they use a product. I’m drawn to soft visuals, clear structure, and calm interactions—and whether it’s a hotpot brand, a pet shop interface, or an educational card game, I aim to create experiences that are simple, comfortable, and quietly delightful.
-  </p>
-</div>
-
-
+          <div class="resume-header-right">
+            <h1><strong>I’m Kitty Chen.</strong></h1>
+            <p class="resume-intro">
+              I’m a GBDA student and emerging UI/UX designer who cares about how people feel when they use a product. I’m drawn to soft visuals, clear structure, and calm interactions—and whether it’s a hotpot brand, a pet shop interface, or an educational card game, I aim to create experiences that are simple, comfortable, and quietly delightful.
+            </p>
+          </div>
         </div>
 
         <div class="resume-body">
-  <!-- 先放 Skills Overview 表格 -->
-  <div class="experience-block">
+          <!-- 左侧：Skills + Experience -->
+          <div class="experience-block">
+            <!-- Skills Overview 标题 -->
+            <div class="section-pill">Skills Overview</div>
 
-  <table class="skills-table">
-    <caption>Skills Overview</caption>
-    <thead>
-      <tr>
-        <th>Category</th>
-        <th>Skill</th>
-        <th>Level</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Design</td>
-        <td>UI Layout, Visual Design</td>
-        <td>Intermediate</td>
-      </tr>
-      <tr>
-        <td>Tools</td>
-        <td>Figma, Photoshop, Illustrator</td>
-        <td>Intermediate</td>
-      </tr>
-      <tr>
-        <td>Coding</td>
-        <td>HTML, CSS, basic JavaScript</td>
-        <td>Beginner</td>
-      </tr>
-    </tbody>
-  </table>
+            <!-- Skills 表格 -->
+            <table class="skills-table">
+              <thead>
+                <tr>
+                  <th>Category</th>
+                  <th>Skill</th>
+                  <th>Level</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Design</td>
+                  <td>UI Layout, Visual Design</td>
+                  <td>Intermediate</td>
+                </tr>
+                <tr>
+                  <td>Tools</td>
+                  <td>Figma, Photoshop, Illustrator</td>
+                  <td>Intermediate</td>
+                </tr>
+                <tr>
+                  <td>Coding</td>
+                  <td>HTML, CSS, basic JavaScript</td>
+                  <td>Beginner</td>
+                </tr>
+              </tbody>
+            </table>
 
-  <!-- 再放 High School Yearbook Designer 这一段 -->
-  <div class="section-pill">Experience</div>
-  <article class="job">
-    <div class="job-header">
-      <div class="job-title">High School Yearbook Designer</div>
-      <div class="job-date">June, 2023</div>
-    </div>
-    <ul>
-      <li>Designed page layouts, typography, and image arrangements for the school yearbook, ensuring visual consistency and storytelling flow.</li>
-      <li>Coordinated with photographers and editors to manage content deadlines and maintain design quality.</li>
-      <li>Enhanced overall publication aesthetics, resulting in positive student feedback and increased yearbook sales.</li>
-    </ul>
-  </article>
+            <!-- Experience -->
+            <div class="section-pill">Experience</div>
+            <article class="job">
+              <div class="job-header">
+                <div class="job-title">High School Yearbook Designer</div>
+                <div class="job-date">June, 2023</div>
+              </div>
+              <ul>
+                <li>Designed page layouts, typography, and image arrangements for the school yearbook, ensuring visual consistency and storytelling flow.</li>
+                <li>Coordinated with photographers and editors to manage content deadlines and maintain design quality.</li>
+                <li>Enhanced overall publication aesthetics, resulting in positive student feedback and increased yearbook sales.</li>
+              </ul>
+            </article>
 
-  <!-- 后面两个 job 原样保留 -->
-  <article class="job">
-    <div class="job-header">
-      <div class="job-title">Website Redesign Project</div>
-      <div class="job-date">September, 2025</div>
-    </div>
-    <ul>
-      <li>Redesigned a small Canadian company’s website to make it easier to use and visually more consistent.</li>
-      <li>Created wireframes and layout ideas in Figma and Adobe XD, helping the team improve navigation and page structure.</li>
-      <li>Worked with teammates to design a responsive layout that looks good on both web and mobile.</li>
-    </ul>
-  </article>
+            <article class="job">
+              <div class="job-header">
+                <div class="job-title">Website Redesign Project</div>
+                <div class="job-date">September, 2025</div>
+              </div>
+              <ul>
+                <li>Redesigned a small Canadian company’s website to make it easier to use and visually more consistent.</li>
+                <li>Created wireframes and layout ideas in Figma and Adobe XD, helping the team improve navigation and page structure.</li>
+                <li>Worked with teammates to design a responsive layout that looks good on both web and mobile.</li>
+              </ul>
+            </article>
 
-  <article class="job">
-    <div class="job-header">
-      <div class="job-title">Educational Card Game Design</div>
-      <div class="job-date">September, 2025</div>
-    </div>
-    <ul>
-      <li>Created a card game that helps players learn service design methods in a fun and interactive way.</li>
-      <li>Designed icons and UI mockups to make the game easy to understand and visually engaging.</li>
-      <li>Tested the game with users and improved the design based on feedback.</li>
-    </ul>
-  </article>
-
-</div>
-
+            <article class="job">
+              <div class="job-header">
+                <div class="job-title">Educational Card Game Design</div>
+                <div class="job-date">September, 2025</div>
+              </div>
+              <ul>
+                <li>Created a card game that helps players learn service design methods in a fun and interactive way.</li>
+                <li>Designed icons and UI mockups to make the game easy to understand and visually engaging.</li>
+                <li>Tested the game with users and improved the design based on feedback.</li>
+              </ul>
+            </article>
+          </div>
 
           <!-- 右列：侧栏 -->
           <aside class="side-column">
-
             <div class="side-card">
               <div class="side-card-title">Education</div>
               <h3>University of Waterloo</h3>
@@ -650,16 +616,15 @@ I’m a GBDA student and emerging UI/UX designer who cares about how people feel
                 <li>#Quick learner</li>
               </ul>
             </div>
+
             <div class="side-card">
-  <div class="side-card-title">Contact</div>
-  <ul class="tag-list">
-    <li>📞 647–607–4551</li>
-    <li>✉️ <a href="mailto:y555chen@uwaterloo.ca">y555chen@uwaterloo.ca</a></li>
-    <li>📍 316 Batavia Pl, Waterloo, ON N2L 3W2</li>
-  </ul>
-</div>
-
-
+              <div class="side-card-title">Contact</div>
+              <ul class="tag-list">
+                <li>📞 647–607–4551</li>
+                <li>✉️ <a href="mailto:y555chen@uwaterloo.ca">y555chen@uwaterloo.ca</a></li>
+                <li>📍 316 Batavia Pl, Waterloo, ON N2L 3W2</li>
+              </ul>
+            </div>
           </aside>
         </div>
       </section>
