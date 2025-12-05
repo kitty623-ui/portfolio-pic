@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Kitty Chen – Portfolio</title>
 
   <style>
@@ -18,7 +18,13 @@
       --radius-lg: 22px;
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth; /* 导航点击时平滑滚动 */
+    }
 
     body {
       margin: 0;
@@ -35,7 +41,7 @@
     a:hover { text-decoration: underline; }
     a:active { color: #000; }
 
-    /* ====== 最外层：1440px + 上下120空白 ====== */
+    /* ====== 外层框：1440 + 上下 120 空白 ====== */
     .frame {
       width: 1440px;      /* 1200 内容 + 左右各 120 */
       margin: 0 auto;
@@ -44,8 +50,7 @@
 
     .page-wrapper {
       width: 1200px;
-      /* 不再固定高度，让页面可以滚动变长 */
-      min-height: 2160px;         /* 至少这么高，更多内容会继续往下长 */
+      min-height: 2160px;         /* 至少 2160，高度不足时撑一下，多了继续往下滚 */
       background: #ffffff;
       margin: 0 auto;
       border-radius: 0;
@@ -53,9 +58,11 @@
       flex-direction: column;
     }
 
-    main { flex: 1; }
+    main {
+      flex: 1;
+    }
 
-    /* ========== SECTION 1: TOP HERO (PORTFOLIO) + NAV ========== */
+    /* ========== SECTION 1: HERO + NAV ========== */
 
     .hero-inner {
       width: 100%;
@@ -63,7 +70,6 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      box-sizing: border-box;
     }
 
     .portfolio-title-box {
@@ -94,21 +100,22 @@
       letter-spacing: 0.16em;
     }
 
-.nav-link {
-  color: #a66a40;
-  font-weight: 500;
-}
+    .nav-link {
+      color: #a66a40;
+      font-weight: 500;
+    }
 
-.nav-link--active {
-  color: var(--accent-red);
-  font-weight: 700;
-}
+    .nav-link--active {
+      color: var(--accent-red);
+      font-weight: 700;
+    }
 
-.nav-link:hover {
-  color: var(--accent-red);
-}
+    .nav-link:hover {
+      color: var(--accent-red);
+      text-decoration: none;
+    }
 
-    /* ========== SECTION 2: HELLO CARD ========== */
+    /* ========== SECTION 2: HELLO ========== */
 
     .hello-section {
       padding: 70px 40px 70px;
@@ -127,7 +134,10 @@
       min-height: 320px;
     }
 
-    .hello-photo-frame { position: relative; padding: 22px; }
+    .hello-photo-frame {
+      position: relative;
+      padding: 22px;
+    }
 
     .hello-photo-circle {
       width: 400px;
@@ -174,7 +184,7 @@
       max-width: 650px;
     }
 
-    /* ========== SECTION 3: PROJECT CARDS ========== */
+    /* ========== SECTION 3: PROJECTS ========== */
 
     .projects-section {
       padding: 16px 40px 60px;
@@ -191,7 +201,7 @@
     .project-card {
       position: relative;
       border-radius: 24px;
-      overflow: hidden;
+      overflow: hidden;          /* 照片跟着圆角裁剪 */
       height: 495px;
       background-size: cover;
       background-position: center;
@@ -199,9 +209,9 @@
     }
 
     .project-card--left {
-      background-image: url("Frame 47 1.png");
-      background-size: contain;
-      background-color: #ffd47f;
+      background-image: url("Frame 47 1.png"); /* Burger Ops */
+      background-size: contain;                /* 保证整张图都在 */
+      background-color: #ffd47f;              /* 剩余空白填充底色 */
     }
 
     .project-card--middle {
@@ -220,9 +230,10 @@
       font-weight: 700;
       color: #ffffff;
       z-index: 1;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.3);
     }
 
-    /* ========== SECTION 4: RESUME BLOCK ========== */
+    /* ========== SECTION 4: RESUME ========== */
 
     .resume-section {
       margin-top: 40px;
@@ -294,11 +305,6 @@
       font-size: 14px;
       margin-bottom: 18px;
       background: var(--bg-resume);
-    }
-
-    .experience-block h2 {
-      margin: 0 0 20px;
-      font-size: 18px;
     }
 
     .job {
@@ -377,7 +383,7 @@
       content: "• ";
     }
 
-    /* ========== FOOTER (整页统一一个) ========== */
+    /* ========== FOOTER ========== */
 
     .site-footer {
       background: var(--bg-footer);
@@ -393,7 +399,9 @@
       font-size: 14px;
     }
 
-    .footer-left { line-height: 1.6; }
+    .footer-left {
+      line-height: 1.6;
+    }
 
     .footer-icons {
       margin-top: 8px;
@@ -401,30 +409,29 @@
       gap: 16px;
       font-size: 18px;
     }
-
   </style>
 </head>
-<body>
 
+<body>
 <div class="frame">
   <div class="page-wrapper">
 
-    <!-- SECTION 1: HERO + NAV -->
-    <header class="hero-top">
+    <!-- SECTION 1: HERO + NAV，当成 home 顶部 -->
+    <header class="hero-top" id="home">
       <div class="hero-inner">
         <div class="portfolio-title-box">
-          <img src="MacBook Air - 1.png" alt="Portfolio title">
+          <!-- 把图片文件名改成你自己的 Hero 图 -->
+          <img src="MacBook Air - 1.png" alt="Portfolio title" />
         </div>
       </div>
 
       <div class="nav-strip">
- <div class="nav-strip">
-  <div class="nav-inner">
-    <a class="nav-link" href="#resume-anchor">RESUME</a>
-    <a class="nav-link nav-link--active" href="#projects">PROJECT 1</a>
-    <a class="nav-link" href="#projects">PROJECT 2</a>
-  </div>
-</div>
+        <div class="nav-inner">
+          <!-- 像你 demo 一样：href 对应下面的 id -->
+          <a class="nav-link" href="#resume">RESUME</a>
+          <a class="nav-link nav-link--active" href="#projects">PROJECT 1</a>
+          <a class="nav-link" href="#projects">PROJECT 2</a>
+        </div>
       </div>
     </header>
 
@@ -434,13 +441,14 @@
         <div class="hello-card">
           <div class="hello-photo-frame">
             <div class="hello-photo-circle">
-              <img src="_DSC5008 Large.jpeg" alt="Portrait of Kitty Chen">
+              <img src="_DSC5008 Large.jpeg" alt="Portrait of Kitty Chen" />
             </div>
           </div>
 
           <div class="hello-text-col">
             <div class="hello-text-heading">
-              <img src="Frame 49 (1).png" alt="Hello, I'm Kitty">
+              <!-- 你设计的 Hello 图片 -->
+              <img src="Frame 49 (1).png" alt="Hello, I'm Kitty" />
             </div>
             <div class="hello-body">
               I’m a second-year Global Business and Digital Arts student at the
@@ -457,7 +465,6 @@
       <!-- SECTION 3: PROJECT CARDS -->
       <section class="projects-section" id="projects">
         <div class="projects-grid">
-
           <div class="project-card project-card--left">
             <div class="project-number">01</div>
           </div>
@@ -469,18 +476,15 @@
           <div class="project-card project-card--right">
             <div class="project-number">03</div>
           </div>
-
         </div>
       </section>
 
-      <!-- SECTION 4: RESUME BLOCK -->
-      <!-- 锚点：点击 RESUME 会滚到这里 -->
-<div id="resume-anchor"></div>
+      <!-- SECTION 4: RESUME -->
       <section class="resume-section" id="resume">
         <div class="resume-header">
           <div class="resume-header-left">
             <div class="resume-photo-wrap">
-              <img src="_DSC5008 Large.jpeg" alt="Portrait of Kitty Chen">
+              <img src="_DSC5008 Large.jpeg" alt="Portrait of Kitty Chen" />
             </div>
           </div>
 
@@ -552,8 +556,8 @@
               <div class="side-card-title">Education</div>
               <h3>University of Waterloo</h3>
               <p>Global Business and Digital Arts, Year 2</p>
-              <p>Expected Graduation:<br>April, 2028</p>
-              <p style="margin-top:10px;"><strong>Unionville High School</strong><br>2021 – 2024</p>
+              <p>Expected Graduation:<br />April, 2028</p>
+              <p style="margin-top:10px;"><strong>Unionville High School</strong><br />2021 – 2024</p>
             </div>
 
             <div class="side-card">
@@ -588,19 +592,18 @@
 
           </aside>
         </div>
-
       </section>
     </main>
-
-    <!-- 整个长页统一的底部 -->
+    
+    <!-- FOOTER -->
     <section class="site-footer">
       <div class="footer-inner">
         <div class="footer-left">
-          <strong>Get in touch with me</strong><br>
+          <strong>Get in touch with me</strong><br />
           316 Batavia Pl, Waterloo, ON N2L 3W2
         </div>
         <div>
-          📞 647-607-4551<br>
+          📞 647-607-4551<br />
           ✉️ <a href="mailto:y555chen@uwaterloo.ca">y555chen@uwaterloo.ca</a>
           <div class="footer-icons">
             <span>in</span><span>ig</span><span>x</span><span>fb</span>
@@ -611,6 +614,5 @@
 
   </div>
 </div>
-
 </body>
 </html>
