@@ -8,9 +8,10 @@
     :root {
       --bg-page: #f0ece6;
       --bg-cream: #ffe9d4;
-      --bg-nav: #e9c9aa;
+      --bg-nav: #e4c9b1;
       --bg-card: #ffe4c8;
       --bg-footer: #ffe4c8;
+      --bg-resume: #f4cfb3;
       --text-main: #2b2622;
       --text-muted: #7a6d63;
       --accent-red: #de2910;
@@ -34,34 +35,27 @@
     a:hover { text-decoration: underline; }
     a:active { color: #000; }
 
-    /* ====== 新增：最外层 1440px 框，控制上下左右 120px 空白 ====== */
+    /* ====== 最外层：1440px + 上下120空白 ====== */
     .frame {
-      width: 1440px;            /* 1200 内容 + 左右各 120 */
+      width: 1440px;      /* 1200 内容 + 左右各 120 */
       margin: 0 auto;
-      padding: 120px 0;         /* 上下 120px 空白 */
+      padding: 120px 0;   /* 上下 120px 空白 */
     }
 
     .page-wrapper {
-    width: 1200px;
-    height: 2160px;
-    background: #ffffff;
-    overflow: hidden;      /* 不要让内容溢出 */
-    margin: 0 auto;
-    border-radius: 0;      /* 整个页面四角无圆角 */
-    display: flex;
-    flex-direction: column;
-  }
+      width: 1200px;
+      /* 不再固定高度，让页面可以滚动变长 */
+      min-height: 2160px;         /* 至少这么高，更多内容会继续往下长 */
+      background: #ffffff;
+      margin: 0 auto;
+      border-radius: 0;
+      display: flex;
+      flex-direction: column;
+    }
 
     main { flex: 1; }
 
-    .container {
-      width: 1200px;
-      margin: 0 auto;
-      padding: 0 40px 0 40px;   /* 视情况加一点内边距，可调 */
-      box-sizing: border-box;
-    }
-
-    /* ========== SECTION 1: TOP HERO (PORTFOLIO) ========== */
+    /* ========== SECTION 1: TOP HERO (PORTFOLIO) + NAV ========== */
 
     .hero-inner {
       width: 100%;
@@ -69,7 +63,6 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 24px;
       box-sizing: border-box;
     }
 
@@ -79,58 +72,62 @@
     }
 
     .portfolio-title-box img {
-      max-width: 1200px;  
+      width: 100%;    /* 铺满 1200px */
       height: auto;
+      display: block;
     }
 
     .nav-strip {
-      background: #E4C9B1;
-      margin-top: -25px;
+      background: var(--bg-nav);
+      margin-top: -25px;        /* 把 bar 拉近图片 */
     }
 
-   .nav-inner {
-  width: 100%;
-  padding: 24px 0;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;  
-  gap: 300px;    
-  font-size: 26px; 
+    .nav-inner {
+      width: 100%;
+      padding: 24px 0;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 300px;
+      font-size: 26px;
+      letter-spacing: 0.16em;
+    }
+
+.nav-link {
+  color: #a66a40;
+  font-weight: 500;
 }
-                                                                              
-    .nav-link {
-      color: #a66a40;
-      font-weight: 500;
-    }
-    .nav-link--active {
-      color: var(--accent-red);
-      font-weight: 700;
-    }
+
+.nav-link--active {
+  color: var(--accent-red);
+  font-weight: 700;
+}
+
+.nav-link:hover {
+  color: var(--accent-red);
+}
 
     /* ========== SECTION 2: HELLO CARD ========== */
 
-/* 外层 section：只控制和其它 section 的间距 */
-.hello-section {
-  padding: 70px 40px 70px;   /* 保持原来的即可 */
-  background: #ffffff;
-  box-sizing: border-box;
-}
+    .hello-section {
+      padding: 70px 40px 70px;
+      background: #ffffff;
+      box-sizing: border-box;
+    }
 
-/* 橙色卡片：通过上下 padding/min-height 拉高 */
-.hello-card {
-  background: var(--bg-card);
-  border-radius: var(--radius-lg);
-  padding: 40px 32px;        /* ↑↑ 把这里的上下 padding 调大 */
-  display: grid;
-  grid-template-columns: 40% 60%;
-  gap: 32px;
-  align-items: center;
-  min-height: 320px;         /* 再保底一个最小高度，让它更“长” */
-}
+    .hello-card {
+      background: var(--bg-card);
+      border-radius: var(--radius-lg);
+      padding: 40px 32px;
+      display: grid;
+      grid-template-columns: 0.95fr 1.35fr;
+      gap: 32px;
+      align-items: center;
+      min-height: 320px;
+    }
 
-
-
+    .hello-photo-frame { position: relative; padding: 22px; }
 
     .hello-photo-circle {
       width: 400px;
@@ -153,22 +150,22 @@
       display: block;
     }
 
-.hello-text-heading {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 0px 16px;
-  border-radius: 999px;
-  font-size: 25px;
-  margin-bottom: 20px;
-}
+    .hello-text-col {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
 
-.hello-text-heading span {
-  font-weight: 700;
-  color: var(--accent-red);
-}
+    .hello-text-heading {
+      margin-bottom: 20px;
+      padding: 0;
+    }
 
-
+    .hello-text-heading img {
+      display: block;
+      max-width: 280px;
+      height: auto;
+    }
 
     .hello-body {
       font-size: 22px;
@@ -177,68 +174,217 @@
       max-width: 650px;
     }
 
-    /* ========== SECTION 3: PROJECTS ========== */
+    /* ========== SECTION 3: PROJECT CARDS ========== */
 
     .projects-section {
-  padding: 16px 40px 50px;
-  background: #ffffff;
-  box-sizing: border-box;
-}
+      padding: 16px 40px 60px;
+      background: #ffffff;
+      box-sizing: border-box;
+    }
 
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 90px;
-}
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 90px;
+    }
 
-/* 直接用 project-card 当照片容器 */
-.project-card {
-  position: relative;
-  border-radius: 24px;
-  overflow: hidden;           /* 让照片也跟着圆角裁切 */
-  height: 495px;              /* 卡片高度，可按照片比例调 */
-  background-size: cover;     /* 照片铺满 */
-  background-position: center;
-  background-repeat: no-repeat;
-}
+    .project-card {
+      position: relative;
+      border-radius: 24px;
+      overflow: hidden;
+      height: 495px;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
 
-/* 三张卡片，各自指定背景图 */
-.project-card--left {
-  background-image: url("Frame 47 1.png");
-  background-size: contain;        /* 显示整张图 */
-}
+    .project-card--left {
+      background-image: url("Frame 47 1.png");
+      background-size: contain;
+      background-color: #ffd47f;
+    }
 
-.project-card--middle {
-  background-image: url("Group 32.png");
-}
+    .project-card--middle {
+      background-image: url("Group 32.png");
+    }
 
-.project-card--right {
-  background-image: url("Group 27 (2).png");
-}
+    .project-card--right {
+      background-image: url("Group 27 (2).png");
+    }
 
+    .project-number {
+      position: absolute;
+      bottom: 8px;
+      right: 12px;
+      font-size: 70px;
+      font-weight: 700;
+      color: #ffffff;
+      z-index: 1;
+    }
 
-.project-number {
-  position: absolute;
-  bottom: -17px;
-  right: 8px;             /* 贴着右下角 */
-  font-size: 70px;
-  font-weight: 700;
-  color: #ffffff;
-  z-index: 1;    
-  /* 确保在图片之上 */
-}
+    /* ========== SECTION 4: RESUME BLOCK ========== */
 
+    .resume-section {
+      margin-top: 40px;
+      background: var(--bg-resume);
+      padding: 48px 72px 40px;
+    }
 
+    .resume-header {
+      display: grid;
+      grid-template-columns: 1.1fr 1.4fr;
+      gap: 40px;
+      margin-bottom: 48px;
+      align-items: center;
+    }
 
-    /* ========== FOOTER ========== */
+    .resume-photo-wrap {
+      width: 260px;
+      height: 260px;
+      border-radius: 32px;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    }
 
-.site-footer {
-  background: var(--bg-footer);
-  border-top: 1px solid #e0c9af;
-  padding: 140px 40px 40px;   /* 上下都变 40px */
-  box-sizing: border-box;
-}
+    .resume-photo-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
 
+    .resume-header-right h1 {
+      margin: 0 0 16px;
+      font-size: 32px;
+      letter-spacing: 0.03em;
+    }
+
+    .contact-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      font-size: 15px;
+      line-height: 1.8;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 4px;
+    }
+
+    .contact-icon {
+      font-size: 18px;
+    }
+
+    .resume-body {
+      display: grid;
+      grid-template-columns: 1.9fr 1.1fr;
+      gap: 40px;
+    }
+
+    .section-pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 6px 18px;
+      border-radius: 999px;
+      border: 2px solid #c24a2c;
+      font-weight: 600;
+      font-size: 14px;
+      margin-bottom: 18px;
+      background: var(--bg-resume);
+    }
+
+    .experience-block h2 {
+      margin: 0 0 20px;
+      font-size: 18px;
+    }
+
+    .job {
+      margin-bottom: 28px;
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .job-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 6px;
+      font-weight: 600;
+    }
+
+    .job-title {
+      font-size: 15px;
+    }
+
+    .job-date {
+      font-size: 13px;
+    }
+
+    .job ul {
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    .job ul li {
+      margin-bottom: 4px;
+    }
+
+    .side-column {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .side-card {
+      background: #ffe9d4;
+      border-radius: 18px;
+      padding: 16px 18px 14px;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .side-card-title {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 14px;
+      border-radius: 999px;
+      border: 2px solid #c24a2c;
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 10px;
+      background: #ffe0c4;
+    }
+
+    .side-card h3 {
+      margin: 0 0 6px;
+      font-size: 13px;
+    }
+
+    .side-card p {
+      margin: 0 0 4px;
+    }
+
+    .tag-list {
+      margin: 0;
+      padding-left: 0;
+      list-style: none;
+    }
+
+    .tag-list li::before {
+      content: "• ";
+    }
+
+    /* ========== FOOTER (整页统一一个) ========== */
+
+    .site-footer {
+      background: var(--bg-footer);
+      border-top: 1px solid #e0c9af;
+      padding: 40px 40px 40px;
+      box-sizing: border-box;
+    }
 
     .footer-inner {
       display: flex;
@@ -247,7 +393,7 @@
       font-size: 14px;
     }
 
-    .footer-left { line-height: ; }
+    .footer-left { line-height: 1.6; }
 
     .footer-icons {
       margin-top: 8px;
@@ -260,30 +406,27 @@
 </head>
 <body>
 
-<div class="frame"><!-- 控制上下左右 120px 空白 -->
+<div class="frame">
+  <div class="page-wrapper">
 
-  <div class="page-wrapper"><!-- 1200px 白色内容区 -->
-
-    <!-- SECTION 1: TOP HERO + NAV -->
+    <!-- SECTION 1: HERO + NAV -->
     <header class="hero-top">
       <div class="hero-inner">
         <div class="portfolio-title-box">
-          <!-- 用你的 “PORTFOLIO” 图片替换 -->
           <img src="MacBook Air - 1.png" alt="Portfolio title">
         </div>
       </div>
 
       <div class="nav-strip">
         <div class="nav-inner">
-          <a class="nav-link" href="resume.html">RESUME</a>
-          <a class="nav-link nav-link--active" href="index.html">PROJECT 1</a>
-          <a class="nav-link" href="project-hotpot.html">PROJECT 2</a>
-        </div>
+  <a class="nav-link" href="#resume">RESUME</a>
+  <a class="nav-link nav-link--active" href="#projects">PROJECT 1</a>
+  <a class="nav-link" href="#projects">PROJECT 2</a>
+</div>
       </div>
     </header>
 
     <main>
-
       <!-- SECTION 2: HELLO -->
       <section class="hello-section" id="hello">
         <div class="hello-card">
@@ -293,61 +436,160 @@
             </div>
           </div>
 
-  <!-- 右边：Hello + 文本 -->
-  <div class="hello-text-col">
- <div class="hello-text-heading">
-    <!-- 在这里插入你做好的 Hello 图片，文件名自己换 -->
-    <img src="Frame 49 (1).png" alt="Hello, I’m Kitty">
-  </div>
-    <div class="hello-body">
-      I’m a second-year Global Business and Digital Arts student at the
-      University of Waterloo, motivated and detail-oriented, passionate
-      about creating intuitive and meaningful digital experiences. I enjoy
-      turning ideas into clear, functional designs and learning through
-      collaboration. Curious and adaptable, I’m always exploring new ways
-      to connect creativity with usability in every project.
-    </div>
-  </div>
-</div>
-
+          <div class="hello-text-col">
+            <div class="hello-text-heading">
+              <img src="Frame 49 (1).png" alt="Hello, I'm Kitty">
+            </div>
+            <div class="hello-body">
+              I’m a second-year Global Business and Digital Arts student at the
+              University of Waterloo, motivated and detail-oriented, passionate
+              about creating intuitive and meaningful digital experiences. I enjoy
+              turning ideas into clear, functional designs and learning through
+              collaboration. Curious and adaptable, I’m always exploring new ways
+              to connect creativity with usability in every project.
+            </div>
+          </div>
+        </div>
       </section>
 
       <!-- SECTION 3: PROJECT CARDS -->
       <section class="projects-section" id="projects">
         <div class="projects-grid">
 
-          <div class="project-card--left">
-            <div class="project-card-wrapper">
-              <div class="project-card-inner">
-                <!-- Burger Ops 封面图 -->
-              </div>
-              <div class="project-number">01</div>
-            </div>
+          <div class="project-card project-card--left">
+            <div class="project-number">01</div>
           </div>
 
           <div class="project-card project-card--middle">
-            <div class="project-card-wrapper">
-              <div class="project-card-inner">
-              </div>
-              <div class="project-number">02</div>
-            </div>
+            <div class="project-number">02</div>
           </div>
 
           <div class="project-card project-card--right">
-            <div class="project-card-wrapper">
-              <div class="project-card-inner">
-              </div>
-              <div class="project-number">03</div>
-            </div>
+            <div class="project-number">03</div>
           </div>
 
         </div>
       </section>
 
+      <!-- SECTION 4: RESUME BLOCK -->
+      <section class="resume-section" id="resume">
+        <div class="resume-header">
+          <div class="resume-header-left">
+            <div class="resume-photo-wrap">
+              <img src="_DSC5008 Large.jpeg" alt="Portrait of Kitty Chen">
+            </div>
+          </div>
+
+          <div class="resume-header-right">
+            <h1>I’m Kitty Chen.</h1>
+            <ul class="contact-list">
+              <li class="contact-item">
+                <span class="contact-icon">📞</span>
+                <span>647–607–4551</span>
+              </li>
+              <li class="contact-item">
+                <span class="contact-icon">✉️</span>
+                <a href="mailto:y555chen@uwaterloo.ca">y555chen@uwaterloo.ca</a>
+              </li>
+              <li class="contact-item">
+                <span class="contact-icon">🏠</span>
+                <span>316 Batavia Pl, Waterloo, ON N2L 3W2</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="resume-body">
+          <!-- 左列：Experience -->
+          <div class="experience-block">
+            <div class="section-pill">Experience</div>
+
+            <article class="job">
+              <div class="job-header">
+                <div class="job-title">High School Yearbook Designer</div>
+                <div class="job-date">June, 2023</div>
+              </div>
+              <ul>
+                <li>Designed page layouts, typography, and image arrangements for the school yearbook, ensuring visual consistency and storytelling flow.</li>
+                <li>Coordinated with photographers and editors to manage content deadlines and maintain design quality.</li>
+                <li>Enhanced overall publication aesthetics, resulting in positive student feedback and increased yearbook sales.</li>
+              </ul>
+            </article>
+
+            <article class="job">
+              <div class="job-header">
+                <div class="job-title">Website Redesign Project</div>
+                <div class="job-date">September, 2025</div>
+              </div>
+              <ul>
+                <li>Redesigned a small Canadian company’s website to make it easier to use and visually more consistent.</li>
+                <li>Created wireframes and layout ideas in Figma and Adobe XD, helping the team improve navigation and page structure.</li>
+                <li>Worked with teammates to design a responsive layout that looks good on both web and mobile.</li>
+              </ul>
+            </article>
+
+            <article class="job">
+              <div class="job-header">
+                <div class="job-title">Educational Card Game Design</div>
+                <div class="job-date">September, 2025</div>
+              </div>
+              <ul>
+                <li>Created a card game that helps players learn service design methods in a fun and interactive way.</li>
+                <li>Designed icons and UI mockups to make the game easy to understand and visually engaging.</li>
+                <li>Tested the game with users and improved the design based on feedback.</li>
+              </ul>
+            </article>
+          </div>
+
+          <!-- 右列：侧栏 -->
+          <aside class="side-column">
+
+            <div class="side-card">
+              <div class="side-card-title">Education</div>
+              <h3>University of Waterloo</h3>
+              <p>Global Business and Digital Arts, Year 2</p>
+              <p>Expected Graduation:<br>April, 2028</p>
+              <p style="margin-top:10px;"><strong>Unionville High School</strong><br>2021 – 2024</p>
+            </div>
+
+            <div class="side-card">
+              <div class="side-card-title">Language</div>
+              <p>Chinese &nbsp;&nbsp;•&nbsp;&nbsp; English</p>
+            </div>
+
+            <div class="side-card">
+              <div class="side-card-title">Soft Skills</div>
+              <ul class="tag-list">
+                <li>#Collaboration</li>
+                <li>#Adaptability</li>
+                <li>#Attention to detail</li>
+                <li>#Quick learner</li>
+              </ul>
+            </div>
+
+            <div class="side-card">
+              <div class="side-card-title">Coding (basic)</div>
+              <ul class="tag-list">
+                <li>JavaScript</li>
+                <li>HTML</li>
+                <li>CSS</li>
+              </ul>
+            </div>
+
+            <div class="side-card">
+              <div class="side-card-title">Design Tools</div>
+              <p>Adobe Photoshop, Illustrator, InDesign</p>
+              <p>Figma, other prototyping tools</p>
+            </div>
+
+          </aside>
+        </div>
+
+      </section>
     </main>
 
-    <!-- FOOTER -->
-    <footer class="site-footer">
+    <!-- 整个长页统一的底部 -->
+    <section class="site-footer">
       <div class="footer-inner">
         <div class="footer-left">
           <strong>Get in touch with me</strong><br>
@@ -361,11 +603,10 @@
           </div>
         </div>
       </div>
-    </footer>
+    </section>
 
-  </div><!-- /.page-wrapper -->
-
-</div><!-- /.frame -->
+  </div>
+</div>
 
 </body>
 </html>
