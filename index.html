@@ -105,6 +105,17 @@
         color: #de2910;
         text-decoration: underline;
       }
+      
+      /* 初始状态 */
+.project-card {
+  transition: transform 0.25s ease-out;  /* 让变化有动画 */
+}
+
+/* 鼠标移上去时 */
+.project-card:hover {
+  transform: scale(1.05);  /* 稍微放大一点 */
+}
+
 
       /* ========== SECTION 2: HELLO ========== */
 
@@ -223,6 +234,13 @@
         z-index: 1;
         text-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
       }
+      
+      .project-card-link {
+  display: block;            /* 让 a 像块级元素一样，和原来卡片一样宽 */
+  text-decoration: none;     /* 不要下划线 */
+  color: inherit;            /* 颜色跟原来一样 */
+}
+
 
       /* ========== SECTION 3: RESUME ========== */
 
@@ -666,6 +684,7 @@
                   <img src="_DSC5008 Large.jpeg" alt="Portrait of Kitty Chen" />
                 </div>
               </div>
+              
 
               <div class="hello-text-col">
                 <div class="hello-text-heading">
@@ -682,23 +701,31 @@
               </div>
             </div>
           </section>
+          
 
           <!-- SECTION 3: PROJECT CARDS (THUMBNAILS) -->
           <section class="projects-section" id="projects">
-            <div class="projects-grid">
-              <div class="project-card project-card--left">
-                <div class="project-number">01</div>
-              </div>
+           <div class="projects-grid">
+  <a href="#project1" class="project-card-link">
+    <div class="project-card project-card--left">
+      <div class="project-number">01</div>
+    </div>
+  </a>
 
-              <div class="project-card project-card--middle">
-                <div class="project-number">02</div>
-              </div>
+  <a href="#project2" class="project-card-link">
+    <div class="project-card project-card--middle">
+      <div class="project-number">02</div>
+    </div>
+  </a>
 
-              <div class="project-card project-card--right">
-                <div class="project-number">03</div>
-              </div>
-            </div>
+  <a href="#project3" class="project-card-link">
+    <div class="project-card project-card--right">
+      <div class="project-number">03</div>
+    </div>
+  </a>
+</div>
           </section>
+          
 
           <!-- SECTION 4: RESUME -->
           <section class="resume-section" id="resume">
