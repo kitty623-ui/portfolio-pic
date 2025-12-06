@@ -1,653 +1,945 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>Kitty Chen – Portfolio</title>
-
-  <style>
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      font-family: "Anonymous Pro", serif;
-      background: #f0ece6;      /* 外面的灰色背景 */
-      color: #2b2622;
-    }
-
-    a {
-      color: #2b2622;
-      text-decoration: none;
-    }
-    a:visited { color: #2b2622; }
-    a:hover { text-decoration: underline; }
-    a:active { color: #000; }
-
-    /* ====== 外层框：1440 + 上下 120 空白 ====== */
-    .frame {
-      width: 1440px;      /* 1200 内容 + 左右各 120 */
-      margin: 0 auto;
-      padding: 120px 0;   /* 上下 120px 空白 */
-    }
-
-    .page-wrapper {
-      width: 1200px;
-      min-height: 2160px;         /* 至少 2160，高度不足时撑一下，多了继续往下滚 */
-      background: #ffffff;
-      margin: 0 auto;
-      border-radius: 0;
-      display: flex;
-      flex-direction: column;
-    }
-
-    main {
-      flex: 1;
-    }
-
-    /* ========== SECTION 1: HERO + NAV ========== */
-
-    .hero-inner {
-      width: 100%;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .portfolio-title-box {
-      width: 100%;
-      display: flex;
-    }
-
-    .portfolio-title-box img {
-      width: 100%;    /* 铺满 1200px */
-      height: auto;
-      display: block;
-    }
-
-    .nav-strip {
-      background: #e4c9b1;
-      margin-top: -25px; 
-    }
-
-    .nav-inner {
-      width: 100%;
-      padding: 24px 0;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 300px;
-      font-size: 26px;
-      letter-spacing: 0.16em;
-    }
-
-    .nav-link {
-      color: #a66a40;
-      font-weight: 500;
-    }
-
-    .nav-link--active {
-      color: #de2910;
-      font-weight: 700;
-    }
-
-    .nav-link:hover {
-      color: #de2910;
-      text-decoration: underline;
-    }
-
-    /* ========== SECTION 2: HELLO ========== */
-
-    .hello-section {
-      padding: 70px 40px 70px;
-      background: #ffffff;
-      box-sizing: border-box;
-    }
-
-    .hello-card {
-      background: #ffe4c8;
-      border-radius: 22px;
-      padding: 40px 32px;
-      display: grid;
-      grid-template-columns: 0.95fr 1.35fr;
-      gap: 32px;
-      align-items: center;
-      min-height: 320px;
-    }
-
-    .hello-photo-frame {
-      position: relative;
-      padding: 22px;
-    }
-
-    .hello-photo-circle {
-      width: 400px;
-      height: 400px;
-      border-radius: 50%;
-      overflow: hidden;
-      margin: 0 auto;
-      background: #ddd;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 20px;
-      color: #7a6d63;
-    }
-
-    .hello-photo-circle img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .hello-text-col {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-    }
-
-    .hello-text-heading {
-      margin-bottom: 20px;
-      padding: 0;
-    }
-
-    .hello-text-heading img {
-      display: block;
-      max-width: 280px;
-      height: auto;
-    }
-
-    .hello-body {
-      font-size: 22px;
-      line-height: 1.7;
-      color: #2b2622;
-      max-width: 650px;
-    }
-
-    /* ========== SECTION 3: PROJECTS ========== */
-
-    .projects-section {
-      padding: 16px 40px 60px;
-      background: #ffffff;
-      box-sizing: border-box;
-    }
-
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 90px;
-    }
-
-    .project-card {
-      position: relative;
-      border-radius: 24px;
-      overflow: hidden;          /* 照片跟着圆角裁剪 */
-      height: 495px;
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-    }
-
-    .project-card--left {
-      background-image: url("Frame 47 1.png"); /* Burger Ops */
-      background-size: contain;                /* 保证整张图都在 */
-      background-color: #ffd47f;              /* 剩余空白填充底色 */
-    }
-
-    .project-card--middle {
-      background-image: url("Group 32.png");
-    }
-
-    .project-card--right {
-      background-image: url("Group 27 (2).png");
-    }
-
-    .project-number {
-      position: absolute;
-      bottom: -12px;
-      right: 12px;
-      font-size: 70px;
-      font-weight: 700;
-      color: #ffffff;
-      z-index: 1;
-      text-shadow: 0 2px 6px rgba(0,0,0,0.3);
-    }
-
-    /* ========== SECTION 4: RESUME ========== */
-
-    .resume-section {
-      margin-top: 40px;
-      background: #f4cfb3;
-      padding: 48px 72px 40px;
-    }
-
-    .resume-header {
-      display: grid;
-      grid-template-columns: auto 1fr;
-      gap: 70px;
-      margin-bottom: 48px;
-      align-items: center;
-    }
-
-    .resume-photo-wrap {
-      width: 300px;
-      height: 300px;
-      border-radius: 32px;
-      overflow: hidden;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
-    }
-
-    .resume-photo-wrap img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .resume-header-right h1 {
-      margin: 0 0 16px;
-      font-size: 50px;
-      letter-spacing: 0.03em;
-    }
-    
-    .resume-intro {
-      font-size: 20px;
-      line-height: 1.7;
-      margin: 0;
-    }
-
-    .contact-list {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      font-size: 22px;
-      line-height: 3;
-    }
-
-    .contact-item {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 4px;
-    }
-
-    .contact-icon {
-      font-size: 18px;
-    }
-
-    .resume-body {
-      display: grid;
-      grid-template-columns: 2fr 1fr;
-      gap: 40px;
-    }
-
-    .section-pill {
-      display: inline-flex;
-      align-items: center;
-      padding: 6px 18px;
-      border-radius: 999px;
-      border: 2px solid #c24a2c;
-      font-weight: 600;
-      font-size: 22px;
-      margin-bottom: 18px;
-      background: #f4cfb3;
-    }
-
-    .job {
-      margin-bottom: 28px;
-      font-size: 18px;
-      line-height: 1.7;
-    }
-
-    .job-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      margin-bottom: 6px;
-      font-weight: 600;
-    }
-
-    .job-title {
-      font-size: 20px;
-    }
-
-    .job-date {
-      font-size: 18px;
-    }
-
-    .job ul {
-      margin: 0;
-      padding-left: 18px;
-    }
-
-    .job ul li {
-      margin-bottom: 4px;
-    }
-
-    .side-column {
-      display: flex;
-      flex-direction: column;
-      gap: 18px;
-    }
-
-    .side-card {
-      background: #ffe9d4;
-      border-radius: 18px;
-      padding: 16px 18px 14px;
-      font-size: 18px;
-      line-height: 1.6;
-    }
-
-    .side-card-title {
-      display: inline-flex;
-      align-items: center;
-      padding: 4px 14px;
-      border-radius: 999px;
-      border: 2px solid #c24a2c;
-      font-size: 20px;
-      font-weight: 600;
-      margin-bottom: 10px;
-      background: #ffe0c4;
-    }
-
-    .side-card h3 {
-      margin: 0 0 6px;
-      font-size: 20px;
-    }
-
-    .side-card p {
-      margin: 0 0 4px;
-    }
-
-    .tag-list {
-      margin: 0;
-      padding-left: 0;
-      list-style: none;
-    }
-    
-    .skills-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-bottom: 40px;
-      font-size: 18px;
-      background: #ffe9d4;
-      border-radius: 12px;
-      overflow: hidden;
-    }
-
-    .skills-table th,
-    .skills-table td {
-      padding: 10px 12px;
-      text-align: left;
-    }
-
-    .skills-table thead {
-      background: #f0c4a5;
-    }
-
-    .skills-table th {
-      font-weight: 600;
-    }
-
-    .skills-table tbody tr:nth-child(even) {
-      background: #ffe4c8;
-    }
-
-    .skills-table tbody tr:nth-child(odd) {
-      background: #ffe9d4;
-    }
-
-    /* ========== FOOTER ========== */
-
-    .site-footer {
-      background: #ffe4c8;
-      border-top: 1px solid #e0c9af;
-      padding: 40px 40px 40px;
-      box-sizing: border-box;
-    }
-
-    /* 让侧栏和联系信息里的邮箱看起来更像可以点击的链接 */
-    .side-card a,
-    .footer-inner a {
-      text-decoration: none;
-      color: #c24a2c;
-    }
-
-    .side-card a:hover,
-    .footer-inner a:hover {
-      text-decoration: underline;
-      opacity: 0.85;
-    }
-
-    .footer-left {
-      line-height: 1.6;
-    }
-
-    .footer-icons {
-      margin-top: 8px;
-      display: flex;
-      gap: 16px;
-      font-size: 18px;
-    }
-  </style>
-</head>
-
-<body>
-<div class="frame">
-  <div class="page-wrapper">
-
-    <!-- SECTION 1: HERO + NAV，当成 home 顶部 -->
-    <header class="hero-top" id="home">
-      <div class="hero-inner">
-        <div class="portfolio-title-box">
-          <!-- 把图片文件名改成你自己的 Hero 图 -->
-          <img src="MacBook Air - 1.png" alt="Portfolio title" />
-        </div>
-      </div>
-
-      <div class="nav-strip">
-        <div class="nav-inner">
-          <!-- 像你 demo 一样：href 对应下面的 id -->
-          <a class="nav-link" href="#resume">RESUME</a>
-          <a class="nav-link nav-link--active" href="#projects">PROJECT 1</a>
-          <a class="nav-link" href="#projects">PROJECT 2</a>
-        </div>
-      </div>
-    </header>
-
-    <main>
-      <!-- SECTION 2: HELLO -->
-      <section class="hello-section" id="hello">
-        <div class="hello-card">
-          <div class="hello-photo-frame">
-            <div class="hello-photo-circle">
-              <img src="_DSC5008 Large.jpeg" alt="Portrait of Kitty Chen" />
+  <head>
+    <meta charset="UTF-8" />
+    <title>Kitty Chen – Portfolio</title>
+
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Anonymous Pro", serif;
+        background: #f0ece6;
+        color: #2b2622;
+      }
+
+      a {
+        color: #2b2622;
+        text-decoration: none;
+      }
+
+      a:visited {
+        color: #2b2622;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      a:active {
+        color: #000;
+      }
+
+      /* ====== 外层框：1440 + 上下 120 空白 ====== */
+      .frame {
+        width: 1440px;
+        margin: 0 auto;
+        padding: 120px 0;
+      }
+
+      .page-wrapper {
+        width: 1200px;
+        min-height: 2160px;
+        background: #ffffff;
+        margin: 0 auto;
+        border-radius: 0;
+        display: flex;
+        flex-direction: column;
+      }
+
+      main {
+        flex: 1;
+      }
+
+      /* ========== SECTION 1: HERO + NAV ========== */
+
+      .hero-inner {
+        width: 100%;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .portfolio-title-box {
+        width: 100%;
+        display: flex;
+      }
+
+      .portfolio-title-box img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      .nav-strip {
+        background: #e4c9b1;
+        margin-top: -25px;
+      }
+
+      .nav-inner {
+        width: 100%;
+        padding: 24px 0;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 300px;
+        font-size: 26px;
+        letter-spacing: 0.16em;
+      }
+
+      .nav-link {
+        color: #a66a40;
+        font-weight: 500;
+      }
+
+      .nav-link--active {
+        color: #de2910;
+        font-weight: 700;
+      }
+
+      .nav-link:hover {
+        color: #de2910;
+        text-decoration: underline;
+      }
+
+      /* ========== SECTION 2: HELLO ========== */
+
+      .hello-section {
+        padding: 70px 40px 70px;
+        background: #ffffff;
+        box-sizing: border-box;
+      }
+
+      .hello-card {
+        background: #ffe4c8;
+        border-radius: 22px;
+        padding: 40px 32px;
+        display: grid;
+        grid-template-columns: 0.95fr 1.35fr;
+        gap: 32px;
+        align-items: center;
+        min-height: 320px;
+      }
+
+      .hello-photo-frame {
+        position: relative;
+        padding: 22px;
+      }
+
+      .hello-photo-circle {
+        width: 400px;
+        height: 400px;
+        border-radius: 50%;
+        overflow: hidden;
+        margin: 0 auto;
+        background: #ddd;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+        color: #7a6d63;
+      }
+
+      .hello-photo-circle img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      .hello-text-col {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .hello-text-heading {
+        margin-bottom: 20px;
+        padding: 0;
+      }
+
+      .hello-text-heading img {
+        display: block;
+        max-width: 280px;
+        height: auto;
+      }
+
+      .hello-body {
+        font-size: 22px;
+        line-height: 1.7;
+        color: #2b2622;
+        max-width: 650px;
+      }
+
+      /* ========== SECTION 3: PROJECTS GRID ========== */
+
+      .projects-section {
+        padding: 16px 40px 60px;
+        background: #ffffff;
+        box-sizing: border-box;
+      }
+
+      .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 90px;
+      }
+
+      .project-card {
+        position: relative;
+        border-radius: 24px;
+        overflow: hidden;
+        height: 495px;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+
+      .project-card--left {
+        background-image: url("Frame 47 1.png");
+        background-size: contain;
+        background-color: #ffd47f;
+      }
+
+      .project-card--middle {
+        background-image: url("Group 32.png");
+      }
+
+      .project-card--right {
+        background-image: url("Group 27 (2).png");
+      }
+
+      .project-number {
+        position: absolute;
+        bottom: -12px;
+        right: 12px;
+        font-size: 70px;
+        font-weight: 700;
+        color: #ffffff;
+        z-index: 1;
+        text-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+      }
+
+      /* ========== SECTION 3: RESUME ========== */
+
+      .resume-section {
+        margin-top: 40px;
+        background: #f4cfb3;
+        padding: 48px 72px 40px;
+      }
+
+      .resume-header {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 70px;
+        margin-bottom: 48px;
+        align-items: center;
+      }
+
+      .resume-photo-wrap {
+        width: 300px;
+        height: 300px;
+        border-radius: 32px;
+        overflow: hidden;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+      }
+
+      .resume-photo-wrap img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      .resume-header-right h1 {
+        margin: 0 0 16px;
+        font-size: 50px;
+        letter-spacing: 0.03em;
+      }
+
+      .resume-intro {
+        font-size: 20px;
+        line-height: 1.7;
+        margin: 0;
+      }
+
+      .resume-body {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 40px;
+      }
+
+      .section-pill {
+        display: inline-flex;
+        align-items: center;
+        padding: 6px 18px;
+        border-radius: 999px;
+        border: 2px solid #c24a2c;
+        font-weight: 600;
+        font-size: 22px;
+        margin-bottom: 18px;
+        background: #f4cfb3;
+      }
+
+      .job {
+        margin-bottom: 28px;
+        font-size: 18px;
+        line-height: 1.7;
+      }
+
+      .job-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        margin-bottom: 6px;
+        font-weight: 600;
+      }
+
+      .job-title {
+        font-size: 20px;
+      }
+
+      .job-date {
+        font-size: 18px;
+      }
+
+      .job ul {
+        margin: 0;
+        padding-left: 18px;
+      }
+
+      .job ul li {
+        margin-bottom: 4px;
+      }
+
+      .side-column {
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+      }
+
+      .side-card {
+        background: #ffe9d4;
+        border-radius: 18px;
+        padding: 16px 18px 14px;
+        font-size: 18px;
+        line-height: 1.6;
+      }
+
+      .side-card-title {
+        display: inline-flex;
+        align-items: center;
+        padding: 4px 14px;
+        border-radius: 999px;
+        border: 2px solid #c24a2c;
+        font-size: 20px;
+        font-weight: 600;
+        margin-bottom: 10px;
+        background: #ffe0c4;
+      }
+
+      .side-card h3 {
+        margin: 0 0 6px;
+        font-size: 20px;
+      }
+
+      .side-card p {
+        margin: 0 0 4px;
+      }
+
+      .tag-list {
+        margin: 0;
+        padding-left: 0;
+        list-style: none;
+      }
+
+      .skills-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 40px;
+        font-size: 18px;
+        background: #ffe9d4;
+        border-radius: 12px;
+        overflow: hidden;
+      }
+
+      .skills-table th,
+      .skills-table td {
+        padding: 10px 12px;
+        text-align: left;
+      }
+
+      .skills-table thead {
+        background: #f0c4a5;
+      }
+
+      .skills-table th {
+        font-weight: 600;
+      }
+
+      .skills-table tbody tr:nth-child(even) {
+        background: #ffe4c8;
+      }
+
+      .skills-table tbody tr:nth-child(odd) {
+        background: #ffe9d4;
+      }
+
+      /* ========== SECTION 4.1: PROJECT DETAIL – HOTPOT ========== */
+
+      .project-detail-section {
+        padding: 40px 40px 80px;
+        background: #ffffff;
+        box-sizing: border-box;
+      }
+
+      .project-detail-hero {
+        border-radius: 24px 24px 0 0;
+        overflow: hidden;
+      }
+
+      .project-detail-hero img {
+        width: 100%;
+        display: block;
+      }
+
+      .project-detail-summary {
+        background: #E4C9B1;
+        border-radius: 0 0 24px 24px;
+        padding: 30px 40px 36px;
+        text-align: center;
+        margin-bottom: 44px;
+      }
+
+      .project-detail-summary h2 {
+        margin: 0 0 10px;
+        font-size: 32px;
+        /* 原来 28px -> 放大 */
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .project-detail-summary h3 {
+        margin: 0 0 20px;
+        font-size: 26px;
+        /* 原来 24px -> 放大 */
+        font-weight: 600;
+      }
+
+      .project-detail-summary p {
+        margin: 0;
+        font-size: 20px;
+        /* 原来 18px -> 放大 */
+        line-height: 1.8;
+        max-width: 860px;
+        margin-inline: auto;
+      }
+
+      .project-detail-grid-top,
+      .project-detail-grid-bottom {
+        display: grid;
+        grid-template-columns: 1.1fr 1.1fr;
+        gap: 32px;
+        margin-bottom: 36px;
+      }
+
+      .project-panel {
+        background: #ffffff;
+        border-radius: 18px;
+        border: 1px solid #e0d2c2;
+        padding: 22px 24px 24px;
+        font-size: 18px;
+        /* 原来 16px -> 放大 */
+        line-height: 1.8;
+      }
+
+      /* Brand research 里的小方块 + 照片浮出来一点 */
+
+      .project-photo-box {
+        margin-top: 60px;
+        height: 130px;
+        /* 方块本身高度，决定卡片占的空间 */
+        background: #E4C9B1;
+        border-radius: 16px;
+        position: relative;
+        /* 让里面的 img 可以绝对定位 */
+        overflow: visible;
+        /* 允许图片从上方冒出来 */
+      }
+
+      .project-photo-box img {
+        position: absolute;
+        bottom: 0;
+        /* 让图片底部贴着方块底部 */
+        left: 50.8%;
+        transform: translateX(-50%);
+        height: 270px;
+        /* 比 150 高，所以会从顶部突出 */
+        width: auto;
+        display: block;
+        object-fit: contain;
+      }
+
+
+
+      .project-panel h4 {
+        margin: 0 0 12px;
+        font-size: 22px;
+        /* 原来 18px -> 放大 */
+        font-weight: 600;
+      }
+
+
+
+      .project-visual-panel {
+        background: #E4C9B1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: none;
+        padding: 0;
+        overflow: hidden;
+      }
+
+      .project-visual-panel img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      .project-tag-row {
+        margin-top: 0;
+        /* 交给外面的盒子来决定间距 */
+        display: flex;
+        gap: 12px;
+        align-items: center;
+        justify-content: center;
+        /* 这一行让 3 个色块整体居中 */
+        flex-wrap: wrap;
+      }
+
+
+      .project-tag-box {
+        margin-top: 60px;
+        /* 和正文拉开一点距离 */
+        height: 130px;
+        /* 跟 .project-photo-box 一样高 */
+        background: #E4C9B1;
+        border-radius: 16px;
+        padding: 14px 18px;
+        display: flex;
+        /* 让内容用 flex 居中 */
+        align-items: center;
+        /* 垂直居中 */
+        justify-content: center;
+        /* 水平居中 */
+      }
+
+
+
+      .color-chip,
+      .type-chip {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px 32px;
+        /* 方块更大一点 */
+        border-radius: 999px;
+        font-size: 20px;
+        /* 字也变大 */
+        border: 1px solid #d0bca2;
+      }
+
+
+      .color-chip--red {
+        background: #de2910;
+        color: #ffffff;
+        border-color: #de2910;
+      }
+
+      .color-chip--white {
+        background: #ffffff;
+        border-color: #d0bca2;
+      }
+
+      .type-chip {
+        background: #3b3123;
+        color: #ffffff;
+        border-color: #3b3123;
+      }
+
+      .project-contact-strip {
+        margin-top: 24px;
+        background: #ffe4c8;
+        border-radius: 18px;
+        padding: 20px 26px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 18px;
+        /* 跟 panel 一致放大一点 */
+      }
+
+      .project-contact-strip .left {
+        font-weight: 600;
+      }
+
+      .project-contact-strip .right {
+        display: flex;
+        gap: 24px;
+        align-items: center;
+      }
+
+      /* ========== FOOTER ========== */
+
+      .site-footer {
+        background: #ffe4c8;
+        border-top: 1px solid #e0c9af;
+        padding: 40px 40px 40px;
+        box-sizing: border-box;
+      }
+
+      .side-card a,
+      .footer-inner a {
+        text-decoration: none;
+        color: #c24a2c;
+      }
+
+      .side-card a:hover,
+      .footer-inner a:hover {
+        text-decoration: underline;
+        opacity: 0.85;
+      }
+
+      .footer-left {
+        line-height: 1.6;
+      }
+
+      .footer-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 14px;
+      }
+
+      .footer-icons {
+        margin-top: 8px;
+        display: flex;
+        gap: 16px;
+        font-size: 18px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="frame">
+      <div class="page-wrapper">
+
+        <!-- SECTION 1: HERO + NAV -->
+        <header class="hero-top" id="home">
+          <div class="hero-inner">
+            <div class="portfolio-title-box">
+              <img src="MacBook Air - 1.png" alt="Portfolio title" />
             </div>
           </div>
 
-          <div class="hello-text-col">
-            <div class="hello-text-heading">
-              <!-- 你设计的 Hello 图片 -->
-              <img src="Frame 49 (1).png" alt="Hello, I'm Kitty" />
-            </div>
-            <div class="hello-body">
-              I’m a second-year Global Business and Digital Arts student at the
-              University of Waterloo, motivated and detail-oriented, passionate
-              about creating intuitive and meaningful digital experiences. I enjoy
-              turning ideas into clear, functional designs and learning through
-              collaboration. Curious and adaptable, I’m always exploring new ways
-              to connect creativity with usability in every project.
+          <div class="nav-strip">
+            <div class="nav-inner">
+              <a class="nav-link" href="#resume">RESUME</a>
+              <a class="nav-link nav-link--active" href="#project1">PROJECT 1</a>
+              <a class="nav-link" href="#projects">PROJECT 2</a>
             </div>
           </div>
-        </div>
-      </section>
+        </header>
 
-      <!-- SECTION 3: PROJECT CARDS -->
-      <section class="projects-section" id="projects">
-        <div class="projects-grid">
-          <div class="project-card project-card--left">
-            <div class="project-number">01</div>
-          </div>
+        <main>
+          <!-- SECTION 2: HELLO -->
+          <section class="hello-section" id="hello">
+            <div class="hello-card">
+              <div class="hello-photo-frame">
+                <div class="hello-photo-circle">
+                  <img src="_DSC5008 Large.jpeg" alt="Portrait of Kitty Chen" />
+                </div>
+              </div>
 
-          <div class="project-card project-card--middle">
-            <div class="project-number">02</div>
-          </div>
-
-          <div class="project-card project-card--right">
-            <div class="project-number">03</div>
-          </div>
-        </div>
-      </section>
-
-      <!-- SECTION 4: RESUME -->
-      <section class="resume-section" id="resume">
-        <div class="resume-header">
-          <div class="resume-header-left">
-            <div class="resume-photo-wrap">
-              <img src="_DSC5008 Large.jpeg" alt="Portrait of Kitty Chen" />
+              <div class="hello-text-col">
+                <div class="hello-text-heading">
+                  <img src="Frame 49 (1).png" alt="Hello, I'm Kitty" />
+                </div>
+                <div class="hello-body">
+                  I’m a second-year Global Business and Digital Arts student at the
+                  University of Waterloo, motivated and detail-oriented, passionate
+                  about creating intuitive and meaningful digital experiences. I enjoy
+                  turning ideas into clear, functional designs and learning through
+                  collaboration. Curious and adaptable, I’m always exploring new ways
+                  to connect creativity with usability in every project.
+                </div>
+              </div>
             </div>
+          </section>
+
+          <!-- SECTION 3: PROJECT CARDS (THUMBNAILS) -->
+          <section class="projects-section" id="projects">
+            <div class="projects-grid">
+              <div class="project-card project-card--left">
+                <div class="project-number">01</div>
+              </div>
+
+              <div class="project-card project-card--middle">
+                <div class="project-number">02</div>
+              </div>
+
+              <div class="project-card project-card--right">
+                <div class="project-number">03</div>
+              </div>
+            </div>
+          </section>
+
+          <!-- SECTION 4: RESUME -->
+          <section class="resume-section" id="resume">
+            <div class="resume-header">
+              <div class="resume-header-left">
+                <div class="resume-photo-wrap">
+                  <img src="_DSC5008 Large.jpeg" alt="Portrait of Kitty Chen" />
+                </div>
+              </div>
+
+              <div class="resume-header-right">
+                <h1><strong>I’m Kitty Chen.</strong></h1>
+                <p class="resume-intro">
+                  I’m a GBDA student and emerging UI/UX designer who cares about how people feel
+                  when they use a product. I’m drawn to soft visuals, clear structure, and calm
+                  interactions—and whether it’s a hotpot brand, a pet shop interface, or an
+                  educational card game, I aim to create experiences that are simple, comfortable,
+                  and quietly delightful.
+                </p>
+              </div>
+            </div>
+
+            <div class="resume-body">
+              <!-- 左侧：Skills + Experience -->
+              <div class="experience-block">
+                <div class="section-pill">Skills Overview</div>
+
+                <table class="skills-table">
+                  <thead>
+                    <tr>
+                      <th>Category</th>
+                      <th>Skill</th>
+                      <th>Level</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Design</td>
+                      <td>UI Layout, Visual Design</td>
+                      <td>Intermediate</td>
+                    </tr>
+                    <tr>
+                      <td>Tools</td>
+                      <td>Figma, Photoshop, Illustrator</td>
+                      <td>Intermediate</td>
+                    </tr>
+                    <tr>
+                      <td>Coding</td>
+                      <td>HTML, CSS, basic JavaScript</td>
+                      <td>Beginner</td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <div class="section-pill">Experience</div>
+
+                <article class="job">
+                  <div class="job-header">
+                    <div class="job-title">High School Yearbook Designer</div>
+                    <div class="job-date">June, 2023</div>
+                  </div>
+                  <ul>
+                    <li>Designed page layouts, typography, and image arrangements for the school yearbook, ensuring visual consistency and storytelling flow.</li>
+                    <li>Coordinated with photographers and editors to manage content deadlines and maintain design quality.</li>
+                    <li>Enhanced overall publication aesthetics, resulting in positive student feedback and increased yearbook sales.</li>
+                  </ul>
+                </article>
+
+                <article class="job">
+                  <div class="job-header">
+                    <div class="job-title">Website Redesign Project</div>
+                    <div class="job-date">September, 2025</div>
+                  </div>
+                  <ul>
+                    <li>Redesigned a small Canadian company’s website to make it easier to use and visually more consistent.</li>
+                    <li>Created wireframes and layout ideas in Figma and Adobe XD, helping the team improve navigation and page structure.</li>
+                    <li>Worked with teammates to design a responsive layout that looks good on both web and mobile.</li>
+                  </ul>
+                </article>
+
+                <article class="job">
+                  <div class="job-header">
+                    <div class="job-title">Educational Card Game Design</div>
+                    <div class="job-date">September, 2025</div>
+                  </div>
+                  <ul>
+                    <li>Created a card game that helps players learn service design methods in a fun and interactive way.</li>
+                    <li>Designed icons and UI mockups to make the game easy to understand and visually engaging.</li>
+                    <li>Tested the game with users and improved the design based on feedback.</li>
+                  </ul>
+                </article>
+              </div>
+
+              <!-- 右列：侧栏 -->
+              <aside class="side-column">
+                <div class="side-card">
+                  <div class="side-card-title">Education</div>
+                  <h3>University of Waterloo</h3>
+                  <p>Global Business and Digital Arts, Year 2</p>
+                  <p>Expected Graduation:<br />April, 2028</p>
+                  <p style="margin-top:10px;"><strong>Unionville High School</strong><br />2021 – 2024</p>
+                </div>
+
+                <div class="side-card">
+                  <div class="side-card-title">Language</div>
+                  <p>Chinese &nbsp;&nbsp;•&nbsp;&nbsp; English</p>
+                </div>
+
+                <div class="side-card">
+                  <div class="side-card-title">Soft Skills</div>
+                  <ul class="tag-list">
+                    <li>#Collaboration</li>
+                    <li>#Adaptability</li>
+                    <li>#Attention to detail</li>
+                    <li>#Quick learner</li>
+                  </ul>
+                </div>
+
+                <div class="side-card">
+                  <div class="side-card-title">Contact</div>
+                  <ul class="tag-list">
+                    <li>📞 647–607–4551</li>
+                    <li>✉️ <a href="mailto:y555chen@uwaterloo.ca">y555chen@uwaterloo.ca</a></li>
+                    <li>📍 316 Batavia Pl, Waterloo, ON N2L 3W2</li>
+                  </ul>
+                </div>
+              </aside>
+            </div>
+          </section>
+        </main>
+
+        <!-- PROJECT DETAIL – HOTPOT -->
+        <section class="project-detail-section" id="project1">
+          <div class="project-detail-hero">
+            <img src="hotpot background pic.png" alt="Hotpot rebranding hero" />
           </div>
 
-          <div class="resume-header-right">
-            <h1><strong>I’m Kitty Chen.</strong></h1>
-            <p class="resume-intro">
-              I’m a GBDA student and emerging UI/UX designer who cares about how people feel when they use a product. I’m drawn to soft visuals, clear structure, and calm interactions—and whether it’s a hotpot brand, a pet shop interface, or an educational card game, I aim to create experiences that are simple, comfortable, and quietly delightful.
+          <div class="project-detail-summary">
+            <h2>01 HOTPOT REBRANDING</h2>
+            <h3>“Hi, Gather Round” — Rebranding Haidilao Hotpot</h3>
+            <p>
+              I developed a new brand identity for Haidilao that keeps the original
+              “Hi” mark but reframes it as warm chopsticks and rising steam in true
+              Chinese red. The refreshed system pairs the logo with a modern visual
+              language, story, and social strategy that share the warmth of hotpot
+              with a global audience.
             </p>
           </div>
-        </div>
 
-        <div class="resume-body">
-          <!-- 左侧：Skills + Experience -->
-          <div class="experience-block">
-            <!-- Skills Overview 标题 -->
-            <div class="section-pill">Skills Overview</div>
+          <div class="project-detail-grid-top">
+            <div class="project-panel project-visual-panel">
+              <img src="logo system.png" alt="Haidilao logo system exploration" />
+            </div>
 
-            <!-- Skills 表格 -->
-            <table class="skills-table">
-              <thead>
-                <tr>
-                  <th>Category</th>
-                  <th>Skill</th>
-                  <th>Level</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Design</td>
-                  <td>UI Layout, Visual Design</td>
-                  <td>Intermediate</td>
-                </tr>
-                <tr>
-                  <td>Tools</td>
-                  <td>Figma, Photoshop, Illustrator</td>
-                  <td>Intermediate</td>
-                </tr>
-                <tr>
-                  <td>Coding</td>
-                  <td>HTML, CSS, basic JavaScript</td>
-                  <td>Beginner</td>
-                </tr>
-              </tbody>
-            </table>
-
-            <!-- Experience -->
-            <div class="section-pill">Experience</div>
-            <article class="job">
-              <div class="job-header">
-                <div class="job-title">High School Yearbook Designer</div>
-                <div class="job-date">June, 2023</div>
-              </div>
-              <ul>
-                <li>Designed page layouts, typography, and image arrangements for the school yearbook, ensuring visual consistency and storytelling flow.</li>
-                <li>Coordinated with photographers and editors to manage content deadlines and maintain design quality.</li>
-                <li>Enhanced overall publication aesthetics, resulting in positive student feedback and increased yearbook sales.</li>
-              </ul>
-            </article>
-
-            <article class="job">
-              <div class="job-header">
-                <div class="job-title">Website Redesign Project</div>
-                <div class="job-date">September, 2025</div>
-              </div>
-              <ul>
-                <li>Redesigned a small Canadian company’s website to make it easier to use and visually more consistent.</li>
-                <li>Created wireframes and layout ideas in Figma and Adobe XD, helping the team improve navigation and page structure.</li>
-                <li>Worked with teammates to design a responsive layout that looks good on both web and mobile.</li>
-              </ul>
-            </article>
-
-            <article class="job">
-              <div class="job-header">
-                <div class="job-title">Educational Card Game Design</div>
-                <div class="job-date">September, 2025</div>
-              </div>
-              <ul>
-                <li>Created a card game that helps players learn service design methods in a fun and interactive way.</li>
-                <li>Designed icons and UI mockups to make the game easy to understand and visually engaging.</li>
-                <li>Tested the game with users and improved the design based on feedback.</li>
-              </ul>
-            </article>
+            <div class="project-panel">
+              <h4>01 Logo design</h4>
+              <p>
+                In the refreshed identity, the Haidilao logo works as a small system
+                rather than a single mark. I explored multiple versions on red, white,
+                and transparent backgrounds so the logo can flex across packaging,
+                signage, and digital screens. At the core, the familiar “Hi” remains,
+                but the H is redrawn as a pair of chopsticks with a small hint of steam,
+                subtly referencing hotpot and sharing food.
+              </p>
+              <p>
+                I tuned the main red to a truer “Chinese red,” bringing in a clear
+                cultural reference while emphasizing warmth, celebration, and welcome.
+              </p>
+            </div>
           </div>
 
-          <!-- 右列：侧栏 -->
-          <aside class="side-column">
-            <div class="side-card">
-              <div class="side-card-title">Education</div>
-              <h3>University of Waterloo</h3>
-              <p>Global Business and Digital Arts, Year 2</p>
-              <p>Expected Graduation:<br />April, 2028</p>
-              <p style="margin-top:10px;"><strong>Unionville High School</strong><br />2021 – 2024</p>
+          <div class="project-detail-grid-bottom">
+            <!-- 左边：Design process -->
+            <div class="project-panel">
+              <h4>02 Design process</h4>
+              <p>
+                This section documents my visual exploration for the new Haidilao
+                identity. I moved from rough pencil sketches to vector explorations,
+                testing different ways of hiding chopsticks and steam inside the “Hi”
+                mark while staying readable at small sizes.
+              </p>
+              <p>
+                I then built a flexible digital system that can live across web,
+                app, and print touchpoints, keeping the forms round, friendly, and
+                easy to recognize.
+              </p>
+
+              <div class="project-tag-box">
+                <div class="project-tag-row">
+                  <span class="color-chip color-chip--red">#DE2910</span>
+                  <span class="color-chip color-chip--white">#FFFFFF</span>
+                  <span class="type-chip">Poppins</span>
+                </div>
+              </div>
             </div>
 
-            <div class="side-card">
-              <div class="side-card-title">Language</div>
-              <p>Chinese &nbsp;&nbsp;•&nbsp;&nbsp; English</p>
-            </div>
+            <!-- 右边：Brand research -->
+            <div class="project-panel">
+              <h4>03 Brand research</h4>
+              <p>
+                Before designing, I researched Haidilao’s history, audience, and
+                current positioning. I looked at how the brand communicates warmth,
+                service, and Chinese hotpot culture today, and analyzed what parts
+                of the identity should be preserved versus refreshed.
+              </p>
+              <p>
+                This research helped me define a direction that keeps the brand’s
+                friendliness and hospitality, while making the visuals feel more
+                contemporary and globally approachable.
+              </p>
 
-            <div class="side-card">
-              <div class="side-card-title">Soft Skills</div>
-              <ul class="tag-list">
-                <li>#Collaboration</li>
-                <li>#Adaptability</li>
-                <li>#Attention to detail</li>
-                <li>#Quick learner</li>
-              </ul>
+              <div class="project-photo-box">
+                <img src="barnd research pic.png" alt="Brand research snapshots" />
+              </div>
             </div>
-
-            <div class="side-card">
-              <div class="side-card-title">Contact</div>
-              <ul class="tag-list">
-                <li>📞 647–607–4551</li>
-                <li>✉️ <a href="mailto:y555chen@uwaterloo.ca">y555chen@uwaterloo.ca</a></li>
-                <li>📍 316 Batavia Pl, Waterloo, ON N2L 3W2</li>
-              </ul>
-            </div>
-          </aside>
-        </div>
-      </section>
-    </main>
-    
-    <!-- FOOTER -->
-    <section class="site-footer">
-      <div class="footer-inner">
-        <div class="footer-left">
-          <strong>Get in touch with me</strong><br />
-          316 Batavia Pl, Waterloo, ON N2L 3W2
-        </div>
-        <div>
-          📞 647-607-4551<br />
-          ✉️ <a href="mailto:y555chen@uwaterloo.ca">y555chen@uwaterloo.ca</a>
-          <div class="footer-icons">
-            <span>in</span><span>ig</span><span>x</span><span>fb</span>
           </div>
-        </div>
+
+
+
+          <!-- FOOTER -->
+          <section class="site-footer">
+            <div class="footer-inner">
+              <div class="footer-left">
+                <strong>Get in touch with me</strong><br />
+                316 Batavia Pl, Waterloo, ON N2L 3W2
+              </div>
+              <div>
+                📞 647-607-4551<br />
+                ✉️ <a href="mailto:y555chen@uwaterloo.ca">y555chen@uwaterloo.ca</a>
+                <div class="footer-icons">
+                  <span>in</span><span>ig</span><span>x</span><span>fb</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
       </div>
-    </section>
-
-  </div>
-</div>
-</body>
+    </div>
+  </body>
 </html>
