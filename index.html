@@ -9,16 +9,13 @@
         box-sizing: border-box;
       }
 
-      html {
-        scroll-behavior: smooth;
-      }
-
       body {
         margin: 0;
         font-family: "Anonymous Pro", serif;
         background: #f0ece6;
         color: #2b2622;
       }
+
 
       a {
         color: #2b2622;
@@ -82,7 +79,14 @@
       .nav-strip {
         background: #e4c9b1;
         margin-top: -25px;
+
+        position: sticky;
+        top: 0px;
+        /* 离视口顶部 120px，刚好不超过你外层的留白 */
+        z-index: 999;
       }
+
+
 
       .nav-inner {
         width: 100%;
@@ -105,19 +109,23 @@
         color: #de2910;
         text-decoration: underline;
       }
-      
+
+
+
       /* 初始状态 */
-.project-card {
-  transition: transform 0.25s ease-out;  /* 让变化有动画 */
-}
+      .project-card {
+        transition: transform 0.25s ease-out;
+        /* 让变化有动画 */
+      }
 
-/* 鼠标移上去时 */
-.project-card:hover {
-  transform: scale(1.05);  /* 稍微放大一点 */
-}
+      /* 鼠标移上去时 */
+      .project-card:hover {
+        transform: scale(1.05);
+        /* 稍微放大一点 */
+      }
 
 
-      /* ========== SECTION 2: HELLO ========== */
+      /* ========== SECTION 2.1: HELLO ========== */
 
       .hello-section {
         padding: 70px 40px 70px;
@@ -126,7 +134,7 @@
       }
 
       .hello-card {
-        background: #ffe4c8;
+        background: #F8ECDF;
         border-radius: 22px;
         padding: 40px 32px;
         display: grid;
@@ -186,7 +194,7 @@
         max-width: 650px;
       }
 
-      /* ========== SECTION 3: PROJECTS GRID ========== */
+      /* ========== SECTION 2.2: PROJECTS GRID ========== */
 
       .projects-section {
         padding: 16px 40px 60px;
@@ -234,12 +242,15 @@
         z-index: 1;
         text-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
       }
-      
+
       .project-card-link {
-  display: block;            /* 让 a 像块级元素一样，和原来卡片一样宽 */
-  text-decoration: none;     /* 不要下划线 */
-  color: inherit;            /* 颜色跟原来一样 */
-}
+        display: block;
+        /* 让 a 像块级元素一样，和原来卡片一样宽 */
+        text-decoration: none;
+        /* 不要下划线 */
+        color: inherit;
+        /* 颜色跟原来一样 */
+      }
 
 
       /* ========== SECTION 3: RESUME ========== */
@@ -287,7 +298,7 @@
 
       .resume-body {
         display: grid;
-        grid-template-columns: 2fr 1fr;
+        grid-template-columns: 65% 35%;
         gap: 40px;
       }
 
@@ -305,7 +316,7 @@
 
       .job {
         margin-bottom: 28px;
-        font-size: 18px;
+        font-size: 20px;
         line-height: 1.7;
       }
 
@@ -318,11 +329,11 @@
       }
 
       .job-title {
-        font-size: 20px;
+        font-size: 22px;
       }
 
       .job-date {
-        font-size: 18px;
+        font-size: 20px;
       }
 
       .job ul {
@@ -337,14 +348,14 @@
       .side-column {
         display: flex;
         flex-direction: column;
-        gap: 18px;
+        gap: 28px;
       }
 
       .side-card {
         background: #ffe9d4;
         border-radius: 18px;
         padding: 16px 18px 14px;
-        font-size: 18px;
+        font-size: 20px;
         line-height: 1.6;
       }
 
@@ -354,7 +365,7 @@
         padding: 4px 14px;
         border-radius: 999px;
         border: 2px solid #c24a2c;
-        font-size: 20px;
+        font-size: 22px;
         font-weight: 600;
         margin-bottom: 10px;
         background: #ffe0c4;
@@ -379,7 +390,7 @@
         width: 100%;
         border-collapse: collapse;
         margin-bottom: 40px;
-        font-size: 18px;
+        font-size: 20px;
         background: #ffe9d4;
         border-radius: 12px;
         overflow: hidden;
@@ -470,7 +481,7 @@
         border-radius: 18px;
         border: 1px solid #e0d2c2;
         padding: 22px 24px 24px;
-        font-size: 18px;
+        font-size: 20px;
         /* 原来 16px -> 放大 */
         line-height: 1.8;
       }
@@ -492,7 +503,6 @@
       .project-photo-box img {
         position: absolute;
         bottom: 0;
-        /* 让图片底部贴着方块底部 */
         left: 50.8%;
         transform: translateX(-50%);
         height: 270px;
@@ -501,8 +511,6 @@
         display: block;
         object-fit: contain;
       }
-
-
 
       .project-panel h4 {
         margin: 0 0 12px;
@@ -610,44 +618,195 @@
         gap: 24px;
         align-items: center;
       }
-      /* ========== FOOTER ========== */
 
-      .site-footer {
-        background: #ffe4c8;
-        border-top: 1px solid #e0c9af;
-        padding: 40px 40px 40px;
+      /* ========== SECTION 4.2: PROJECT DETAIL – BURGER OPS ========== */
+
+      .project2-section {
+        padding: 40px 40px 80px;
+        background: #ffffff;
         box-sizing: border-box;
       }
 
-      .side-card a,
-      .footer-inner a {
-        text-decoration: none;
-        color: #c24a2c;
-      }
-
-      .side-card a:hover,
-      .footer-inner a:hover {
-        text-decoration: underline;
-        opacity: 0.85;
-      }
-
-      .footer-left {
-        line-height: 1.6;
-      }
-
-      .footer-inner {
+      .project2-header {
+        background: linear-gradient(180deg,
+            #ffbe63 0%,
+            /* 上面更深一点的橘色 */
+            #ffd58a 45%,
+            /* 中间偏亮 */
+            #fff7eb 100%
+            /* 接近白色，跟海报一样往下渐变变浅 */
+          );
+        border-radius: 24px 24px 0 0;
+        padding: 28px 40px;
         display: flex;
-        justify-content: space-between;
         align-items: center;
-        font-size: 14px;
+        gap: 24px;
       }
 
-      .footer-icons {
-        margin-top: 8px;
-        display: flex;
-        gap: 16px;
-        font-size: 18px;
+
+      .project2-number {
+        font-size: 56px;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        color: #ffffff;
       }
+
+      .project2-title {
+        font-size: 48px;
+        font-weight: 700;
+        color: #ffffff;
+      }
+
+      /* 汉堡小图标，可以用一张图，也可以先用圆块代替 */
+      .project2-icon {
+        margin-left: auto;
+        width: 70px;
+        height: 70px;
+        border-radius: 999px;
+        background: #ffe7c0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 32px;
+        transition: transform 0.2s ease-out;
+
+      }
+
+
+      .project2-icon:hover {
+        transform: rotate(-6deg) scale(1.05);
+      }
+
+
+      /* 副标题浅色条 */
+      .project2-subtitle {
+        background: #ffe9d4;
+        border-radius: 0 0 24px 24px;
+        padding: 16px 40px 20px;
+        text-align: center;
+        font-size: 18px;
+        line-height: 1.6;
+        margin-bottom: 40px;
+      }
+
+      /* 每一块小标题（Overview / Design rationale / Design process） */
+      .project2-section-title {
+        text-align: center;
+        font-size: 26px;
+        font-weight: 700;
+        margin: 40px 0 16px;
+      }
+
+      /* 两列布局：左图右文 / 左文右图 */
+      /* 两列：左图右文 / 左文右图 */
+      .project2-row {
+        display: grid;
+        grid-template-columns: 1.1fr 1.3fr;
+        gap: 32px;
+        margin-bottom: 40px;
+        align-items: flex-start;
+        /* 关键：让图片和文字都顶对齐 */
+      }
+
+      /* 放在右侧文字里的小标题 */
+      .project2-subheading {
+        font-size: 26px;
+        font-weight: 700;
+        margin: 0 0 16px;
+        /* 顶部不要留空，和图片顶齐 */
+      }
+
+
+      .project2-image {
+        border-radius: 24px;
+        overflow: hidden;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+        background: #f5f5f5;
+      }
+
+      .project2-image img {
+        width: 100%;
+        display: block;
+      }
+
+      .project2-text {
+        font-size: 18px;
+        line-height: 1.8;
+      }
+
+      /* 最后一块（Design process）下面稍微多留一点空间 */
+      .project2-row--last {
+        margin-bottom: 0;
+      }
+
+
+
+      /* ========== FOOTER ========== */
+
+/* ========== FOOTER ========== */
+
+.site-footer {
+  background: #ffe4c8;
+  border-top: 1px solid #e0c9af;
+  padding: 40px 40px 40px;
+  box-sizing: border-box;
+}
+
+.side-card a,
+.footer-inner a {
+  text-decoration: none;
+  color: #c24a2c;
+}
+
+.side-card a:hover,
+.footer-inner a:hover {
+  text-decoration: underline;
+  opacity: 0.85;
+}
+
+/* 一行两块，各占一半 */
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;   /* 顶对齐 */
+  gap: 48px;
+  font-size: 22px;           /* 正文大一点 */
+}
+
+/* 左右两边各 50% 宽度 */
+.footer-left,
+.footer-right {
+  flex: 1;
+}
+      
+.footer-right {
+  /* 原来如果什么都没有，就加这一段 */
+  margin-top: 40px;   /* 往下挪一点，数值你可以自己微调 32–56px 都可以 */
+  line-height: 2.3;
+}
+
+
+/* 标题更大一点 */
+.footer-left strong {
+  display: block;
+  font-size: 30px;
+  margin-bottom: 16px;
+  letter-spacing: 0.04em;
+}
+
+/* icon 区域 */
+.footer-icons {
+  margin-top: 24px;
+  display: flex;
+  gap: 20px;
+}
+
+/* 用自己的图片做 icon */
+.footer-icons img {
+  width: auto;
+  height: 35px;
+  display: block;
+}
     </style>
   </head>
 
@@ -662,17 +821,17 @@
               <img src="MacBook Air - 1.png" alt="Portfolio title" />
             </div>
           </div>
-
-<div class="nav-strip">
-  <div class="nav-inner">
-    <a class="nav-link" href="#home">HOME</a>
-    <a class="nav-link" href="#resume">RESUME</a>
-    <a class="nav-link nav-link--active" href="#project1">PROJECT 1</a>
-    <a class="nav-link" href="#projects">PROJECT 2</a>
-  </div>
-</div>
-
         </header>
+
+        <!-- 🔥 把导航条单独放在 header 后面 -->
+        <div class="nav-strip">
+          <div class="nav-inner">
+            <a class="nav-link" href="#home">HOME</a>
+            <a class="nav-link" href="#resume">RESUME</a>
+            <a class="nav-link nav-link--active" href="#project1">PROJECT 1</a>
+            <a class="nav-link" href="#projects">PROJECT 2</a>
+          </div>
+        </div>
 
         <main>
           <!-- SECTION 2: HELLO -->
@@ -683,7 +842,7 @@
                   <img src="_DSC5008 Large.jpeg" alt="Portrait of Kitty Chen" />
                 </div>
               </div>
-              
+
 
               <div class="hello-text-col">
                 <div class="hello-text-heading">
@@ -700,31 +859,31 @@
               </div>
             </div>
           </section>
-          
+
 
           <!-- SECTION 3: PROJECT CARDS (THUMBNAILS) -->
           <section class="projects-section" id="projects">
-           <div class="projects-grid">
-  <a href="#project1" class="project-card-link">
-    <div class="project-card project-card--left">
-      <div class="project-number">01</div>
-    </div>
-  </a>
+            <div class="projects-grid">
+              <a href="#project1" class="project-card-link">
+                <div class="project-card project-card--left">
+                  <div class="project-number">01</div>
+                </div>
+              </a>
 
-  <a href="#project2" class="project-card-link">
-    <div class="project-card project-card--middle">
-      <div class="project-number">02</div>
-    </div>
-  </a>
+              <a href="#project2" class="project-card-link">
+                <div class="project-card project-card--middle">
+                  <div class="project-number">02</div>
+                </div>
+              </a>
 
-  <a href="#project3" class="project-card-link">
-    <div class="project-card project-card--right">
-      <div class="project-number">03</div>
-    </div>
-  </a>
-</div>
+              <a href="#project3" class="project-card-link">
+                <div class="project-card project-card--right">
+                  <div class="project-number">03</div>
+                </div>
+              </a>
+            </div>
           </section>
-          
+
 
           <!-- SECTION 4: RESUME -->
           <section class="resume-section" id="resume">
@@ -855,110 +1014,187 @@
             </div>
           </section>
 
-        <!-- PROJECT DETAIL – HOTPOT -->
-        <section class="project-detail-section" id="project1">
-          <div class="project-detail-hero">
-            <img src="hotpot background pic.png" alt="Hotpot rebranding hero" />
-          </div>
-
-          <div class="project-detail-summary">
-            <h2>01 HOTPOT REBRANDING</h2>
-            <h3>“Hi, Gather Round” — Rebranding Haidilao Hotpot</h3>
-            <p>
-              I developed a new brand identity for Haidilao that keeps the original
-              “Hi” mark but reframes it as warm chopsticks and rising steam in true
-              Chinese red. The refreshed system pairs the logo with a modern visual
-              language, story, and social strategy that share the warmth of hotpot
-              with a global audience.
-            </p>
-          </div>
-
-          <div class="project-detail-grid-top">
-            <div class="project-panel project-visual-panel">
-              <img src="logo system.png" alt="Haidilao logo system exploration" />
+          <!-- PROJECT DETAIL – HOTPOT -->
+          <section class="project-detail-section" id="project1">
+            <div class="project-detail-hero">
+              <img src="hotpot background pic.png" alt="Hotpot rebranding hero" />
             </div>
 
-            <div class="project-panel">
-              <h4>01 Logo design</h4>
+            <div class="project-detail-summary">
+              <h2>01 HOTPOT REBRANDING</h2>
+              <h3>“Hi, Gather Round” — Rebranding Haidilao Hotpot</h3>
               <p>
-                In the refreshed identity, the Haidilao logo works as a small system
-                rather than a single mark. I explored multiple versions on red, white,
-                and transparent backgrounds so the logo can flex across packaging,
-                signage, and digital screens. At the core, the familiar “Hi” remains,
-                but the H is redrawn as a pair of chopsticks with a small hint of steam,
-                subtly referencing hotpot and sharing food.
-              </p>
-              <p>
-                I tuned the main red to a truer “Chinese red,” bringing in a clear
-                cultural reference while emphasizing warmth, celebration, and welcome.
+                I developed a new brand identity for Haidilao that keeps the original
+                “Hi” mark but reframes it as warm chopsticks and rising steam in true
+                Chinese red. The refreshed system pairs the logo with a modern visual
+                language, story, and social strategy that share the warmth of hotpot
+                with a global audience.
               </p>
             </div>
-          </div>
 
-          <div class="project-detail-grid-bottom">
-            <!-- 左边：Design process -->
-            <div class="project-panel">
-              <h4>02 Design process</h4>
-              <p>
-                This section documents my visual exploration for the new Haidilao
-                identity. I moved from rough pencil sketches to vector explorations,
-                testing different ways of hiding chopsticks and steam inside the “Hi”
-                mark while staying readable at small sizes.
-              </p>
-              <p>
-                I then built a flexible digital system that can live across web,
-                app, and print touchpoints, keeping the forms round, friendly, and
-                easy to recognize.
-              </p>
+            <div class="project-detail-grid-top">
+              <div class="project-panel project-visual-panel">
+                <img src="logo system.png" alt="Haidilao logo system exploration" />
+              </div>
 
-              <div class="project-tag-box">
-                <div class="project-tag-row">
-                  <span class="color-chip color-chip--red">#DE2910</span>
-                  <span class="color-chip color-chip--white">#FFFFFF</span>
-                  <span class="type-chip">Poppins</span>
+              <div class="project-panel">
+                <h4>01 Logo design</h4>
+                <p>
+                  In the refreshed identity, the Haidilao logo works as a small system
+                  rather than a single mark. I explored multiple versions on red, white,
+                  and transparent backgrounds so the logo can flex across packaging,
+                  signage, and digital screens. At the core, the familiar “Hi” remains,
+                  but the H is redrawn as a pair of chopsticks with a small hint of steam,
+                  subtly referencing hotpot and sharing food.
+                </p>
+                <p>
+                  I tuned the main red to a truer “Chinese red,” bringing in a clear
+                  cultural reference while emphasizing warmth, celebration, and welcome.
+                </p>
+              </div>
+            </div>
+
+            <div class="project-detail-grid-bottom">
+              <!-- 左边：Design process -->
+              <div class="project-panel">
+                <h4>02 Design process</h4>
+                <p>
+                  This section documents my visual exploration for the new Haidilao
+                  identity. I moved from rough pencil sketches to vector explorations,
+                  testing different ways of hiding chopsticks and steam inside the “Hi”
+                  mark while staying readable at small sizes.
+                </p>
+                <p>
+                  I then built a flexible digital system that can live across web,
+                  app, and print touchpoints, keeping the forms round, friendly, and
+                  easy to recognize.
+                </p>
+
+                <div class="project-tag-box">
+                  <div class="project-tag-row">
+                    <span class="color-chip color-chip--red">#DE2910</span>
+                    <span class="color-chip color-chip--white">#FFFFFF</span>
+                    <span class="type-chip">Poppins</span>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            <!-- 右边：Brand research -->
-            <div class="project-panel">
-              <h4>03 Brand research</h4>
-              <p>
-                Before designing, I researched Haidilao’s history, audience, and
-                current positioning. I looked at how the brand communicates warmth,
-                service, and Chinese hotpot culture today, and analyzed what parts
-                of the identity should be preserved versus refreshed.
-              </p>
-              <p>
-                This research helped me define a direction that keeps the brand’s
-                friendliness and hospitality, while making the visuals feel more
-                contemporary and globally approachable.
-              </p>
+              <!-- 右边：Brand research -->
+              <div class="project-panel">
+                <h4>03 Brand research</h4>
+                <p>
+                  Before designing, I researched Haidilao’s history, audience, and
+                  current positioning. I looked at how the brand communicates warmth,
+                  service, and Chinese hotpot culture today, and analyzed what parts
+                  of the identity should be preserved versus refreshed.
+                </p>
+                <p>
+                  This research helped me define a direction that keeps the brand’s
+                  friendliness and hospitality, while making the visuals feel more
+                  contemporary and globally approachable.
+                </p>
 
-              <div class="project-photo-box">
-                <img src="barnd research pic.png" alt="Brand research snapshots" />
-              </div>
-            </div>
-          </div>
-        </section>
-        </main>
-
-          <!-- FOOTER -->
-          <section class="site-footer">
-            <div class="footer-inner">
-              <div class="footer-left">
-                <strong>Get in touch with me</strong><br />
-                316 Batavia Pl, Waterloo, ON N2L 3W2
-              </div>
-              <div>
-                📞 647-607-4551<br />
-                ✉️ <a href="mailto:y555chen@uwaterloo.ca">y555chen@uwaterloo.ca</a>
-                <div class="footer-icons">
-                  <span>in</span><span>ig</span><span>x</span><span>fb</span>
+                <div class="project-photo-box">
+                  <img src="barnd research pic.png" alt="Brand research snapshots" />
                 </div>
               </div>
             </div>
           </section>
+          <!-- PROJECT DETAIL – BURGER OPS -->
+          <section class="project2-section" id="project2">
+            <!-- 顶部橘色头部 -->
+            <div class="project2-header">
+              <div class="project2-number">02</div>
+              <div class="project2-title">Burger Ops</div>
+              <!-- 这里可以换成你真正的汉堡图标图片 -->
+              <div class="project2-icon">🍔</div>
+            </div>
+
+            <!-- 副标题浅色条 -->
+            <div class="project2-subtitle">
+              Build-a-Burger — An Educational Card Game Experience as a group project.
+            </div>
+
+            <!-- Overview -->
+            <div class="project2-row">
+              <div class="project2-image">
+                <img src="cover of burger ops.JPG" alt="Burger Ops overview photo" />
+              </div>
+              <div class="project2-text">
+                <h3 class="project2-subheading">Overview</h3>
+                Burger Ops (Build-a-Burger) is an educational card game my group designed to
+                teach service design methods in a playful, hands-on way. Set in a fast-food
+                franchise during a supply chain crisis, players act as managers racing to
+                assemble their signature burgers while dealing with real-world service design
+                challenges. The game combines a competitive Phase 1 with a collaborative Phase 2,
+                where players ultimately work together to keep the franchise “alive,” reinforcing
+                both individual problem-solving and teamwork.
+              </div>
+            </div>
+
+            <!-- Design rationale -->
+            <div class="project2-row">
+              <div class="project2-image">
+                <img src="burger ops ingredient.png" alt="Burger Ops ingredient cards" />
+              </div>
+              <div class="project2-text">
+                <h3 class="project2-subheading">Design rationale</h3>
+                Visually, we used the burger as the core metaphor to make abstract service
+                design concepts more concrete and approachable. Each card type—ingredients,
+                obstacles, shipments, orders—has its own layout and visual hierarchy so
+                players can quickly recognize its function during the game. Colours, icons,
+                and typography are chosen to feel like a fast-food brand (warm, bold,
+                friendly) while still being clean enough to support reading, debating, and
+                checking methods from the book. The ingredient stacks and burger layers give
+                a clear sense of progress, helping players literally “see” their learning and
+                strategy building up over time.
+              </div>
+            </div>
+
+            <!-- Design process -->
+            <div class="project2-row project2-row--last">
+              <div class="project2-text">
+                <h3 class="project2-subheading">Design process</h3>
+                We began by mapping the learning objectives: which service design methods to
+                cover and how players would practice them through discussion, debate, and
+                decision-making. From there, we designed the competitive-then-collaborative
+                structure, card types, and win conditions to reinforce those objectives.
+                We iterated on the rules, facilitator notes, and quick reference guide—
+                testing how easily players understood the flow—then refined the wording,
+                layout, and information hierarchy so the learning stayed clear and never got
+                buried in complexity.
+              </div>
+              <div class="project2-image">
+                <img src="burger ops design process.jpg" alt="Burger Ops design process board" />
+              </div>
+            </div>
+          </section>
+
+        </main>
+
+        <!-- FOOTER -->
+<section class="site-footer">
+  <div class="footer-inner">
+    <!-- 左边：标题 + 地址 + icon -->
+    <div class="footer-left">
+      <strong>Get in touch with me</strong>
+      <div>316 Batavia Pl, Waterloo, ON N2L 3W2</div>
+
+      <div class="footer-icons">
+        <!-- 这里放你的社交媒体图标，可以多放几个 -->
+        <img src="contact info icon.png" alt="Contact information icon" />
+      </div>
+    </div>
+
+    <!-- 右边：电话 + 邮箱 -->
+    <div class="footer-right">
+      <div>📞 647–607–4551</div>
+      <div>✉️ <a href="mailto:y555chen@uwaterloo.ca">y555chen@uwaterloo.ca</a></div>
+    </div>
+  </div>
+</section>
+
+
 
       </div>
     </div>
