@@ -742,61 +742,63 @@
 
       /* ========== FOOTER ========== */
 
-/* ========== FOOTER ========== */
+      /* ========== FOOTER ========== */
 
-.site-footer {
-  background: #ffe4c8;
-  border-top: 1px solid #e0c9af;
-  padding: 40px 40px 40px;
-  box-sizing: border-box;
-}
-
-
-
-.side-card a:hover,
-.footer-inner a:hover {
-  text-decoration: underline;
-  opacity: 0.85;
-}
-
-/* 一行两块，各占一半 */
-.footer-inner {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;   /* 顶对齐 */
-  gap: 48px;
-  font-size: 22px;           /* 正文大一点 */
-}
-
-.footer-left,
-.footer-right {
-  width: 50%;
-}
-
-      
-.footer-right {
-  margin-top: 38px;  
-  line-height: 2.3;
-}
+      .site-footer {
+        background: #ffe4c8;
+        border-top: 1px solid #e0c9af;
+        padding: 40px 40px 40px;
+        box-sizing: border-box;
+      }
 
 
-.footer-left strong {
-  display: block;
-  font-size: 30px;
-  margin-bottom: 16px;
-}
 
-.footer-icons {
-  margin-top: 24px;
-  display: flex;
-  gap: 20px;
-}
+      .side-card a:hover,
+      .footer-inner a:hover {
+        text-decoration: underline;
+        opacity: 0.85;
+      }
 
-.footer-icons img {
-  width: auto;
-  height: 35px;
-  display: block;
-}
+      /* 一行两块，各占一半 */
+      .footer-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        /* 顶对齐 */
+        gap: 48px;
+        font-size: 22px;
+        /* 正文大一点 */
+      }
+
+      .footer-left,
+      .footer-right {
+        width: 50%;
+      }
+
+
+      .footer-right {
+        margin-top: 38px;
+        line-height: 2.3;
+      }
+
+
+      .footer-left strong {
+        display: block;
+        font-size: 30px;
+        margin-bottom: 16px;
+      }
+
+      .footer-icons {
+        margin-top: 24px;
+        display: flex;
+        gap: 20px;
+      }
+
+      .footer-icons img {
+        width: auto;
+        height: 35px;
+        display: block;
+      }
     </style>
   </head>
 
@@ -852,23 +854,24 @@
           <!-- SECTION 3: PROJECT CARDS (THUMBNAILS) -->
           <section class="projects-section" id="projects">
             <div class="projects-grid">
+              <!-- 卡片 1：链接到 hotpot（project1） -->
               <a href="#project1" class="project-card-link">
                 <div class="project-card project-card--left">
                   <div class="project-number">01</div>
                 </div>
               </a>
 
+              <!-- 卡片 2：链接到 Burger Ops（project2） -->
               <a href="#project2" class="project-card-link">
                 <div class="project-card project-card--middle">
                   <div class="project-number">02</div>
                 </div>
               </a>
 
-              <a href="#project3" class="project-card-link">
-                <div class="project-card project-card--right">
-                  <div class="project-number">03</div>
-                </div>
-              </a>
+              <!-- 卡片 3：不加链接，只是展示 -->
+              <div class="project-card project-card--right">
+                <div class="project-number">03</div>
+              </div>
             </div>
           </section>
 
@@ -1161,23 +1164,23 @@
         </main>
 
         <!-- FOOTER -->
-<section class="site-footer">
-  <div class="footer-inner">
-    <div class="footer-left">
-      <strong>Get in touch with me</strong>
-      <div>316 Batavia Pl, Waterloo, ON N2L 3W2</div>
+        <section class="site-footer">
+          <div class="footer-inner">
+            <div class="footer-left">
+              <strong>Get in touch with me</strong>
+              <div>316 Batavia Pl, Waterloo, ON N2L 3W2</div>
 
-      <div class="footer-icons">
-        <img src="contact info icon.png" alt="Contact information icon">
-      </div>
-    </div>
+              <div class="footer-icons">
+                <img src="contact info icon.png" alt="Contact information icon">
+              </div>
+            </div>
 
-    <div class="footer-right">
-      <div>📞 647–607–4551</div>
-      <div>✉️ <a href="mailto:y555chen@uwaterloo.ca">y555chen@uwaterloo.ca</a></div>
-    </div>
-  </div>
-</section>
+            <div class="footer-right">
+              <div>📞 647–607–4551</div>
+              <div>✉️ <a href="mailto:y555chen@uwaterloo.ca">y555chen@uwaterloo.ca</a></div>
+            </div>
+          </div>
+        </section>
       </div>
     </div>
   </body>
