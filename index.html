@@ -3,6 +3,9 @@
   <head>
     <meta charset="UTF-8">
     <title>Kitty Chen – Portfolio</title>
+    <!-- 引入 Anonymous Pro -->
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins:wght@500;600;700&display=swap" >
+
 
     <style>
       * {
@@ -11,9 +14,23 @@
 
       body {
         margin: 0;
-        font-family: "Anonymous Pro", serif;
+        font-family: "Open Sans", sans-serif;
+        font-size: 16px;
         background: #f0ece6;
-        color: #2b2622;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      .nav-link,
+      .section-pill,
+      .side-card-title,
+      .project-number,
+      .project2-number,
+      .project2-title,
+      .project2-subheading {
+        font-family: "Poppins", sans-serif;
       }
 
       a {
@@ -29,11 +46,6 @@
         text-decoration: underline;
       }
 
-      a:active {
-        color: #000;
-      }
-
-      /* ====== 外层框：1440 + 上下 120 空白 ====== */
       .frame {
         width: 1440px;
         margin: 0 auto;
@@ -43,9 +55,7 @@
       .page-wrapper {
         width: 1200px;
         min-height: 2160px;
-        background: #ffffff;
         margin: 0 auto;
-        border-radius: 0;
         display: flex;
         flex-direction: column;
       }
@@ -54,19 +64,12 @@
         flex: 1;
       }
 
-      /* ========== SECTION 1: HERO + NAV ========== */
-
       .hero-inner {
         width: 100%;
         margin: 0 auto;
         display: flex;
         flex-direction: column;
         align-items: center;
-      }
-
-      .portfolio-title-box {
-        width: 100%;
-        display: flex;
       }
 
       .portfolio-title-box img {
@@ -78,14 +81,10 @@
       .nav-strip {
         background: #e4c9b1;
         margin-top: -25px;
-
         position: sticky;
-        top: 0px;
-        /* 离视口顶部 120px，刚好不超过你外层的留白 */
+        top: 0;
         z-index: 999;
       }
-
-
 
       .nav-inner {
         width: 100%;
@@ -99,37 +98,17 @@
         letter-spacing: 0.16em;
       }
 
-      .nav-link {
-        color: #a66a40;
-        font-weight: 500;
-      }
-
-      .nav-link:hover {
-        color: #de2910;
-        text-decoration: underline;
-      }
-
-
-
-      /* 初始状态 */
       .project-card {
         transition: transform 0.25s ease-out;
-        /* 让变化有动画 */
       }
 
-      /* 鼠标移上去时 */
       .project-card:hover {
         transform: scale(1.05);
-        /* 稍微放大一点 */
       }
-
-
-      /* ========== SECTION 2.1: HELLO ========== */
 
       .hello-section {
         padding: 70px 40px 70px;
         background: #ffffff;
-        box-sizing: border-box;
       }
 
       .hello-card {
@@ -143,11 +122,6 @@
         min-height: 320px;
       }
 
-      .hello-photo-frame {
-        position: relative;
-        padding: 22px;
-      }
-
       .hello-photo-circle {
         width: 400px;
         height: 400px;
@@ -158,8 +132,6 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 20px;
-        color: #7a6d63;
       }
 
       .hello-photo-circle img {
@@ -175,11 +147,6 @@
         align-items: flex-start;
       }
 
-      .hello-text-heading {
-        margin-bottom: 20px;
-        padding: 0;
-      }
-
       .hello-text-heading img {
         display: block;
         max-width: 280px;
@@ -189,16 +156,13 @@
       .hello-body {
         font-size: 22px;
         line-height: 1.7;
-        color: #2b2622;
         max-width: 650px;
+        color: #2b2622;
       }
-
-      /* ========== SECTION 2.2: PROJECTS GRID ========== */
 
       .projects-section {
         padding: 16px 40px 60px;
         background: #ffffff;
-        box-sizing: border-box;
       }
 
       .projects-grid {
@@ -242,15 +206,8 @@
 
       .project-card-link {
         display: block;
-        /* 让 a 像块级元素一样，和原来卡片一样宽 */
-        text-decoration: none;
-        /* 不要下划线 */
         color: inherit;
-        /* 颜色跟原来一样 */
       }
-
-
-      /* ========== SECTION 3: RESUME ========== */
 
       .resume-section {
         margin-top: 40px;
@@ -415,17 +372,9 @@
         background: #ffe9d4;
       }
 
-      /* ========== SECTION 4.1: PROJECT DETAIL – HOTPOT ========== */
-
       .project-detail-section {
         padding: 40px 40px 80px;
         background: #ffffff;
-        box-sizing: border-box;
-      }
-
-      .project-detail-hero {
-        border-radius: 24px 24px 0 0;
-        overflow: hidden;
       }
 
       .project-detail-hero img {
@@ -444,7 +393,6 @@
       .project-detail-summary h2 {
         margin: 0 0 10px;
         font-size: 32px;
-        /* 原来 28px -> 放大 */
         letter-spacing: 0.12em;
         text-transform: uppercase;
       }
@@ -452,14 +400,12 @@
       .project-detail-summary h3 {
         margin: 0 0 20px;
         font-size: 26px;
-        /* 原来 24px -> 放大 */
         font-weight: 600;
       }
 
       .project-detail-summary p {
         margin: 0;
         font-size: 20px;
-        /* 原来 18px -> 放大 */
         line-height: 1.8;
         max-width: 860px;
         margin-inline: auto;
@@ -479,22 +425,21 @@
         border: 1px solid #e0d2c2;
         padding: 22px 24px 24px;
         font-size: 20px;
-        /* 原来 16px -> 放大 */
         line-height: 1.8;
       }
 
-      /* Brand research 里的小方块 + 照片浮出来一点 */
+      .project-visual-panel img {
+        width: 100%;
+        display: block;
+      }
 
       .project-photo-box {
         margin-top: 60px;
         height: 130px;
-        /* 方块本身高度，决定卡片占的空间 */
         background: #E4C9B1;
         border-radius: 16px;
         position: relative;
-        /* 让里面的 img 可以绝对定位 */
         overflow: visible;
-        /* 允许图片从上方冒出来 */
       }
 
       .project-photo-box img {
@@ -503,65 +448,19 @@
         left: 50.8%;
         transform: translateX(-50%);
         height: 270px;
-        /* 比 150 高，所以会从顶部突出 */
         width: auto;
-        display: block;
         object-fit: contain;
-      }
-
-      .project-panel h4 {
-        margin: 0 0 12px;
-        font-size: 26px;
-        font-weight: 600;
-      }
-
-
-
-      .project-visual-panel {
-        background: #E4C9B1;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border: none;
-        padding: 0;
-        overflow: hidden;
-      }
-
-      .project-visual-panel img {
-        width: 100%;
-        height: auto;
         display: block;
       }
 
       .project-tag-row {
         margin-top: 0;
-        /* 交给外面的盒子来决定间距 */
         display: flex;
         gap: 12px;
         align-items: center;
         justify-content: center;
-        /* 这一行让 3 个色块整体居中 */
         flex-wrap: wrap;
       }
-
-
-      .project-tag-box {
-        margin-top: 60px;
-        /* 和正文拉开一点距离 */
-        height: 130px;
-        /* 跟 .project-photo-box 一样高 */
-        background: #E4C9B1;
-        border-radius: 16px;
-        padding: 14px 18px;
-        display: flex;
-        /* 让内容用 flex 居中 */
-        align-items: center;
-        /* 垂直居中 */
-        justify-content: center;
-        /* 水平居中 */
-      }
-
-
 
       .color-chip,
       .type-chip {
@@ -569,13 +468,10 @@
         align-items: center;
         justify-content: center;
         padding: 20px 32px;
-        /* 方块更大一点 */
         border-radius: 999px;
         font-size: 20px;
-        /* 字也变大 */
         border: 1px solid #d0bca2;
       }
-
 
       .color-chip--red {
         background: #de2910;
@@ -603,7 +499,6 @@
         align-items: center;
         justify-content: space-between;
         font-size: 18px;
-        /* 跟 panel 一致放大一点 */
       }
 
       .project-contact-strip .left {
@@ -616,30 +511,19 @@
         align-items: center;
       }
 
-      /* ========== SECTION 4.2: PROJECT DETAIL – BURGER OPS ========== */
-
       .project2-section {
         padding: 40px 40px 80px;
         background: #ffffff;
-        box-sizing: border-box;
       }
 
       .project2-header {
-        background: linear-gradient(180deg,
-            #ffbe63 0%,
-            /* 上面更深一点的橘色 */
-            #ffd58a 45%,
-            /* 中间偏亮 */
-            #fff7eb 100%
-            /* 接近白色，跟海报一样往下渐变变浅 */
-          );
+        background: linear-gradient(180deg, #ffbe63 0%, #ffd58a 45%, #fff7eb 100%);
         border-radius: 24px 24px 0 0;
         padding: 28px 40px;
         display: flex;
         align-items: center;
         gap: 24px;
       }
-
 
       .project2-number {
         font-size: 56px;
@@ -654,7 +538,6 @@
         color: #ffffff;
       }
 
-      /* 汉堡小图标，可以用一张图，也可以先用圆块代替 */
       .project2-icon {
         margin-left: auto;
         width: 70px;
@@ -666,16 +549,12 @@
         justify-content: center;
         font-size: 32px;
         transition: transform 0.2s ease-out;
-
       }
-
 
       .project2-icon:hover {
         transform: rotate(-6deg) scale(1.05);
       }
 
-
-      /* 副标题浅色条 */
       .project2-subtitle {
         background: #ffe9d4;
         border-radius: 0 0 24px 24px;
@@ -686,33 +565,17 @@
         margin-bottom: 40px;
       }
 
-      /* 每一块小标题（Overview / Design rationale / Design process） */
-      .project2-section-title {
-        text-align: center;
-        font-size: 26px;
-        font-weight: 700;
-        margin: 40px 0 16px;
-      }
-
-      /* 两列布局：左图右文 / 左文右图 */
-      /* 两列：左图右文 / 左文右图 */
       .project2-row {
         display: grid;
         grid-template-columns: 1.1fr 1.3fr;
         gap: 32px;
         margin-bottom: 40px;
         align-items: flex-start;
-        /* 关键：让图片和文字都顶对齐 */
       }
 
-      /* 放在右侧文字里的小标题 */
-      .project2-subheading {
-        font-size: 26px;
-        font-weight: 700;
-        margin: 0 0 16px;
-        /* 顶部不要留空，和图片顶齐 */
+      .project2-row--last {
+        margin-bottom: 0;
       }
-
 
       .project2-image {
         border-radius: 24px;
@@ -731,54 +594,29 @@
         line-height: 1.8;
       }
 
-      /* 最后一块（Design process）下面稍微多留一点空间 */
-      .project2-row--last {
-        margin-bottom: 0;
-      }
-
-
-
-      /* ========== FOOTER ========== */
-
-      /* ========== FOOTER ========== */
-
       .site-footer {
         background: #ffe4c8;
         border-top: 1px solid #e0c9af;
         padding: 40px 40px 40px;
-        box-sizing: border-box;
       }
 
-
-
-      .side-card a:hover,
-      .footer-inner a:hover {
-        text-decoration: underline;
-        opacity: 0.85;
-      }
-
-      /* 一行两块，各占一半 */
       .footer-inner {
         display: flex;
         justify-content: space-between;
         align-items: flex-start;
-        /* 顶对齐 */
         gap: 48px;
         font-size: 22px;
-        /* 正文大一点 */
       }
 
-      .footer-left,
-      .footer-right {
+      .footer-left {
         width: 50%;
       }
 
-
       .footer-right {
+        width: 50%;
         margin-top: 38px;
         line-height: 2.3;
       }
-
 
       .footer-left strong {
         display: block;
@@ -793,7 +631,6 @@
       }
 
       .footer-icons img {
-        width: auto;
         height: 35px;
         display: block;
       }
@@ -803,8 +640,6 @@
   <body>
     <div class="frame">
       <div class="page-wrapper">
-
-        <!-- SECTION 1: HERO + NAV -->
         <header class="hero-top" id="home">
           <div class="hero-inner">
             <div class="portfolio-title-box">
@@ -817,12 +652,12 @@
           <div class="nav-inner">
             <a class="nav-link" href="#home">HOME</a>
             <a class="nav-link" href="#resume">RESUME</a>
-            <a class="nav-link nav-link--active" href="#project1">PROJECT 1</a>
+            <a class="nav-link" href="#project1">PROJECT 1</a>
             <a class="nav-link" href="#projects">PROJECT 2</a>
           </div>
         </div>
+
         <main>
-          <!-- SECTION 2: HELLO -->
           <section class="hello-section" id="hello">
             <div class="hello-card">
               <div class="hello-photo-frame">
@@ -830,7 +665,6 @@
                   <img src="_DSC5008 Large.jpeg" alt="Portrait of Kitty Chen">
                 </div>
               </div>
-
 
               <div class="hello-text-col">
                 <div class="hello-text-heading">
@@ -848,39 +682,30 @@
             </div>
           </section>
 
-
-          <!-- SECTION 3: PROJECT CARDS (THUMBNAILS) -->
           <section class="projects-section" id="projects">
             <div class="projects-grid">
-              <!-- 卡片 1：链接到 hotpot（project1） -->
               <a href="#project1" class="project-card-link">
                 <div class="project-card project-card--left">
                   <div class="project-number">01</div>
                 </div>
               </a>
 
-              <!-- 卡片 2：链接到 Burger Ops（project2） -->
               <a href="#project2" class="project-card-link">
                 <div class="project-card project-card--middle">
                   <div class="project-number">02</div>
                 </div>
               </a>
 
-              <!-- 卡片 3：不加链接，只是展示 -->
               <div class="project-card project-card--right">
                 <div class="project-number">03</div>
               </div>
             </div>
           </section>
 
-
-          <!-- SECTION 4: RESUME -->
           <section class="resume-section" id="resume">
             <div class="resume-header">
-              <div class="resume-header-left">
-                <div class="resume-photo-wrap">
-                  <img src="_DSC5008 Large.jpeg" alt="Portrait of Kitty Chen">
-                </div>
+              <div class="resume-photo-wrap">
+                <img src="_DSC5008 Large.jpeg" alt="Portrait of Kitty Chen">
               </div>
 
               <div class="resume-header-right">
@@ -896,10 +721,8 @@
             </div>
 
             <div class="resume-body">
-              <!-- 左侧：Skills + Experience -->
               <div class="experience-block">
                 <div class="section-pill">Skills Overview</div>
-
                 <table class="skills-table">
                   <thead>
                     <tr>
@@ -928,7 +751,6 @@
                 </table>
 
                 <div class="section-pill">Experience</div>
-
                 <article class="job">
                   <div class="job-header">
                     <div class="job-title">High School Yearbook Designer</div>
@@ -966,7 +788,6 @@
                 </article>
               </div>
 
-              <!-- 右列：侧栏 -->
               <aside class="side-column">
                 <div class="side-card">
                   <div class="side-card-title">Education</div>
@@ -978,7 +799,7 @@
 
                 <div class="side-card">
                   <div class="side-card-title">Language</div>
-                  <p>Chinese &nbsp;&nbsp;•&nbsp;&nbsp; English</p>
+                  <p>Chinese &nbsp; • &nbsp; English</p>
                 </div>
 
                 <div class="side-card">
@@ -1003,7 +824,6 @@
             </div>
           </section>
 
-          <!-- PROJECT DETAIL – HOTPOT -->
           <section class="project-detail-section" id="project1">
             <div class="project-detail-hero">
               <img src="hotpot background pic.png" alt="Hotpot rebranding hero">
@@ -1025,7 +845,6 @@
               <div class="project-panel project-visual-panel">
                 <img src="logo system.png" alt="Haidilao logo system exploration">
               </div>
-
               <div class="project-panel">
                 <h4>01 Logo design</h4>
                 <p>
@@ -1044,7 +863,6 @@
             </div>
 
             <div class="project-detail-grid-bottom">
-              <!-- 左边：Design process -->
               <div class="project-panel">
                 <h4>02 Design process</h4>
                 <p>
@@ -1059,16 +877,12 @@
                   easy to recognize.
                 </p>
 
-                <div class="project-tag-box">
-                  <div class="project-tag-row">
-                    <span class="color-chip color-chip--red">#DE2910</span>
-                    <span class="color-chip color-chip--white">#FFFFFF</span>
-                    <span class="type-chip">Poppins</span>
-                  </div>
+                <div class="project-tag-row">
+                  <span class="color-chip color-chip--red">#DE2910</span>
+                  <span class="color-chip color-chip--white">#FFFFFF</span>
+                  <span class="type-chip">Poppins</span>
                 </div>
               </div>
-
-              <!-- 右边：Brand research -->
               <div class="project-panel">
                 <h4>03 Brand research</h4>
                 <p>
@@ -1089,30 +903,28 @@
               </div>
             </div>
           </section>
-          <!-- PROJECT DETAIL – BURGER OPS -->
+
           <section class="project2-section" id="project2">
-            <!-- 顶部橘色头部 -->
             <div class="project2-header">
               <div class="project2-number">02</div>
               <div class="project2-title">Burger Ops</div>
-              <!-- 这里可以换成你真正的汉堡图标图片 -->
               <div class="project2-icon">🍔</div>
             </div>
 
-            <!-- 副标题浅色条 -->
             <div class="project2-subtitle">
-              Build-a-Burger — An Educational Card Game Experience as a group project.
+              An Educational Card Game Experience as a group project – content based on
+              <a class="project2-source-link" href="https://learning-oreilly-com.proxy.lib.uwaterloo.ca/library/view/this-is-service/9781492039587/" target="_blank">
+                <em>This Is Service Design Methods</em>
+              </a>
             </div>
 
-            <!-- Overview -->
             <div class="project2-row">
               <div class="project2-image">
                 <img src="cover of burger ops.JPG" alt="Burger Ops overview photo">
               </div>
               <div class="project2-text">
                 <h3 class="project2-subheading">Overview</h3>
-                Burger Ops (Build-a-Burger) is an educational card game my group designed to
-                teach service design methods in a playful, hands-on way. Set in a fast-food
+                Burger Ops is an educational card game my group designed to teach service design methods in a playful, hands-on way. Set in a fast-food
                 franchise during a supply chain crisis, players act as managers racing to
                 assemble their signature burgers while dealing with real-world service design
                 challenges. The game combines a competitive Phase 1 with a collaborative Phase 2,
@@ -1121,7 +933,6 @@
               </div>
             </div>
 
-            <!-- Design rationale -->
             <div class="project2-row">
               <div class="project2-image">
                 <img src="burger ops ingredient.png" alt="Burger Ops ingredient cards">
@@ -1140,7 +951,6 @@
               </div>
             </div>
 
-            <!-- Design process -->
             <div class="project2-row project2-row--last">
               <div class="project2-text">
                 <h3 class="project2-subheading">Design process</h3>
@@ -1158,16 +968,13 @@
               </div>
             </div>
           </section>
-
         </main>
 
-        <!-- FOOTER -->
         <section class="site-footer">
           <div class="footer-inner">
             <div class="footer-left">
               <strong>Get in touch with me</strong>
               <div>316 Batavia Pl, Waterloo, ON N2L 3W2</div>
-
               <div class="footer-icons">
                 <img src="contact info icon.png" alt="Contact information icon">
               </div>
