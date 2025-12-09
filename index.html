@@ -3,9 +3,9 @@
   <head>
     <meta charset="UTF-8">
     <title>Kitty Chen – Portfolio</title>
-    <!-- 引入 Anonymous Pro -->
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins:wght@500;600;700&display=swap" >
+    <!--created by Kitty Chen, Dec 3, 2025-->
 
+   <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap" rel="stylesheet">
 
     <style>
       * {
@@ -14,9 +14,27 @@
 
       body {
         margin: 0;
-        font-family: "Open Sans", sans-serif;
-        font-size: 16px;
+        font-family: "Source Serif 4", serif;
         background: #f0ece6;
+        color: #2b2622;
+        font-size: 26px;
+      }
+
+      a {
+        color: #2b2622;
+        text-decoration: none;
+      }
+
+      a:visited {
+        color: #2b2622;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      a:active {
+        color: #000;
       }
 
       h1,
@@ -33,43 +51,26 @@
         font-family: "Poppins", sans-serif;
       }
 
-      a {
-        color: #2b2622;
-        text-decoration: none;
-      }
-
-      a:visited {
-        color: #2b2622;
-      }
-
-      a:hover {
-        text-decoration: underline;
-      }
-
       .frame {
-        width: 1440px;
-        margin: 0 auto;
+        width: 100%;
         padding: 120px 0;
+        margin: 0 auto;
       }
 
       .page-wrapper {
         width: 1200px;
-        min-height: 2160px;
         margin: 0 auto;
-        display: flex;
-        flex-direction: column;
+
       }
 
-      main {
-        flex: 1;
-      }
-
+      /* ========== SECTION 1: HERO + NAV ========== */
       .hero-inner {
         width: 100%;
         margin: 0 auto;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+      }
+
+      .portfolio-title-box {
+        width: 100%;
       }
 
       .portfolio-title-box img {
@@ -82,29 +83,39 @@
         background: #e4c9b1;
         margin-top: -25px;
         position: sticky;
-        top: 0;
+        top: 0px;
         z-index: 999;
       }
 
       .nav-inner {
-        width: 100%;
         padding: 24px 0;
-        margin: 0 auto;
         display: flex;
         align-items: center;
         justify-content: center;
         gap: 184px;
-        font-size: 26px;
+        font-size: 24px;
         letter-spacing: 0.16em;
       }
 
+      .nav-link {
+        color: #a66a40;
+        font-weight: 500;
+      }
+
+      .nav-link:hover {
+        color: #de2910;
+        text-decoration: underline;
+      }
+
       .project-card {
-        transition: transform 0.25s ease-out;
+        transition: transform 0.25s;
       }
 
       .project-card:hover {
         transform: scale(1.05);
       }
+
+      /* ========== SECTION 2.1: HELLO ========== */
 
       .hello-section {
         padding: 70px 40px 70px;
@@ -112,14 +123,16 @@
       }
 
       .hello-card {
-        background: #F8ECDF;
+        background: #f8ecdf;
         border-radius: 22px;
-        padding: 40px 32px;
+        padding: 40px 50px;
         display: grid;
-        grid-template-columns: 0.95fr 1.35fr;
-        gap: 32px;
+        grid-template-columns: 45% 55%;
         align-items: center;
-        min-height: 320px;
+      }
+
+      .hello-photo-frame {
+        padding: 10px 0 10px 0;
       }
 
       .hello-photo-circle {
@@ -127,8 +140,7 @@
         height: 400px;
         border-radius: 50%;
         overflow: hidden;
-        margin: 0 auto;
-        background: #ddd;
+        margin: 0 auto 0 0;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -136,15 +148,12 @@
 
       .hello-photo-circle img {
         width: 100%;
-        height: 100%;
-        object-fit: cover;
+        height: auto;
         display: block;
       }
 
-      .hello-text-col {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
+      .hello-text-heading {
+        padding: 0;
       }
 
       .hello-text-heading img {
@@ -154,11 +163,14 @@
       }
 
       .hello-body {
-        font-size: 22px;
-        line-height: 1.7;
-        max-width: 650px;
+        font-size: 24px;
+        line-height: 1.8;
         color: #2b2622;
+        max-width: 650px;
+
       }
+
+      /* ========== SECTION 2.2: PROJECTS GRID ========== */
 
       .projects-section {
         padding: 16px 40px 60px;
@@ -167,30 +179,22 @@
 
       .projects-grid {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 90px;
+        grid-template-columns: 30% 30% 30%;
+        gap: 5%;
       }
 
       .project-card {
         position: relative;
         border-radius: 24px;
         overflow: hidden;
-        height: 495px;
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
+        height: 500px;
       }
 
-      .project-card--left {
-        background-image: url("Group 27 (2).png");
-      }
-
-      .project-card--middle {
-        background-image: url("Frame 47 1.png");
-      }
-
-      .project-card--right {
-        background-image: url("project 3.png");
+      .project-card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
       }
 
       .project-number {
@@ -200,14 +204,14 @@
         font-size: 70px;
         font-weight: 700;
         color: #ffffff;
-        z-index: 1;
-        text-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
       }
 
       .project-card-link {
         display: block;
-        color: inherit;
+        text-decoration: none;
       }
+
+      /* ========== SECTION 3: RESUME ========== */
 
       .resume-section {
         margin-top: 40px;
@@ -217,7 +221,7 @@
 
       .resume-header {
         display: grid;
-        grid-template-columns: auto 1fr;
+        grid-template-columns: 30% 70%;
         gap: 70px;
         margin-bottom: 48px;
         align-items: center;
@@ -228,7 +232,6 @@
         height: 300px;
         border-radius: 32px;
         overflow: hidden;
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
       }
 
       .resume-photo-wrap img {
@@ -245,7 +248,7 @@
       }
 
       .resume-intro {
-        font-size: 20px;
+        font-size: 22px;
         line-height: 1.7;
         margin: 0;
       }
@@ -261,33 +264,29 @@
         align-items: center;
         padding: 6px 18px;
         border-radius: 999px;
-        border: 2px solid #c24a2c;
+        border: 3px solid #c24a2c;
         font-weight: 600;
-        font-size: 22px;
+        font-size: 24px;
         margin-bottom: 18px;
         background: #f4cfb3;
       }
 
       .job {
         margin-bottom: 28px;
-        font-size: 20px;
+        font-size: 22px;
         line-height: 1.7;
       }
 
       .job-header {
         display: flex;
         justify-content: space-between;
-        align-items: baseline;
         margin-bottom: 6px;
         font-weight: 600;
       }
 
-      .job-title {
-        font-size: 22px;
-      }
-
+      .job-title,
       .job-date {
-        font-size: 20px;
+        font-size: 22px;
       }
 
       .job ul {
@@ -299,35 +298,29 @@
         margin-bottom: 4px;
       }
 
-      .side-column {
-        display: flex;
-        flex-direction: column;
-        gap: 28px;
-      }
-
       .side-card {
         background: #ffe9d4;
         border-radius: 18px;
         padding: 16px 18px 14px;
-        font-size: 20px;
-        line-height: 1.6;
+        font-size: 22px;
+        line-height: 1.8;
+        margin-bottom: 28px;
       }
 
       .side-card-title {
-        display: inline-flex;
-        align-items: center;
+        display: inline-block;
         padding: 4px 14px;
         border-radius: 999px;
         border: 2px solid #c24a2c;
         font-size: 22px;
         font-weight: 600;
-        margin-bottom: 10px;
+        margin-bottom: 5px;
         background: #ffe0c4;
       }
 
       .side-card h3 {
         margin: 0 0 6px;
-        font-size: 20px;
+        font-size: 22px;
       }
 
       .side-card p {
@@ -342,19 +335,18 @@
 
       .skills-table {
         width: 100%;
-        border-collapse: collapse;
         margin-bottom: 40px;
-        font-size: 20px;
+        font-size: 22px;
         background: #ffe9d4;
-        border-radius: 12px;
-        overflow: hidden;
       }
 
       .skills-table th,
       .skills-table td {
         padding: 10px 12px;
         text-align: left;
+        border: 2px solid #f0c4a5;
       }
+
 
       .skills-table thead {
         background: #f0c4a5;
@@ -364,17 +356,16 @@
         font-weight: 600;
       }
 
-      .skills-table tbody tr:nth-child(even) {
-        background: #ffe4c8;
-      }
-
-      .skills-table tbody tr:nth-child(odd) {
-        background: #ffe9d4;
-      }
+      /* ========== SECTION 4.1: PROJECT DETAIL – HOTPOT ========== */
 
       .project-detail-section {
         padding: 40px 40px 80px;
         background: #ffffff;
+      }
+
+      .project-detail-hero {
+        border-radius: 24px 24px 0 0;
+        overflow: hidden;
       }
 
       .project-detail-hero img {
@@ -383,7 +374,7 @@
       }
 
       .project-detail-summary {
-        background: #E4C9B1;
+        background: #e4c9b1;
         border-radius: 0 0 24px 24px;
         padding: 30px 40px 36px;
         text-align: center;
@@ -404,17 +395,16 @@
       }
 
       .project-detail-summary p {
-        margin: 0;
-        font-size: 20px;
+        margin: 0 auto;
+        font-size: 22px;
         line-height: 1.8;
         max-width: 860px;
-        margin-inline: auto;
       }
 
       .project-detail-grid-top,
       .project-detail-grid-bottom {
         display: grid;
-        grid-template-columns: 1.1fr 1.1fr;
+        grid-template-columns: 50% 50%;
         gap: 32px;
         margin-bottom: 36px;
       }
@@ -424,22 +414,16 @@
         border-radius: 18px;
         border: 1px solid #e0d2c2;
         padding: 22px 24px 24px;
-        font-size: 20px;
+        font-size: 22px;
         line-height: 1.8;
-      }
-
-      .project-visual-panel img {
-        width: 100%;
-        display: block;
       }
 
       .project-photo-box {
         margin-top: 60px;
         height: 130px;
-        background: #E4C9B1;
+        background: #e4c9b1;
         border-radius: 16px;
         position: relative;
-        overflow: visible;
       }
 
       .project-photo-box img {
@@ -449,7 +433,27 @@
         transform: translateX(-50%);
         height: 270px;
         width: auto;
-        object-fit: contain;
+        display: block;
+      }
+
+      .project-panel h4 {
+        margin: 0 0 12px;
+        font-size: 26px;
+        font-weight: 600;
+      }
+
+      .project-visual-panel {
+        background: #e4c9b1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        overflow: hidden;
+      }
+
+      .project-visual-panel img {
+        width: 100%;
+        height: auto;
         display: block;
       }
 
@@ -459,12 +463,22 @@
         gap: 12px;
         align-items: center;
         justify-content: center;
-        flex-wrap: wrap;
+      }
+
+      .project-tag-box {
+        margin-top: 60px;
+        height: 130px;
+        background: #e4c9b1;
+        border-radius: 16px;
+        padding: 14px 18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
 
       .color-chip,
       .type-chip {
-        display: inline-flex;
+        display: inline-block;
         align-items: center;
         justify-content: center;
         padding: 20px 32px;
@@ -487,7 +501,6 @@
       .type-chip {
         background: #3b3123;
         color: #ffffff;
-        border-color: #3b3123;
       }
 
       .project-contact-strip {
@@ -498,7 +511,7 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        font-size: 18px;
+        font-size: 22px;
       }
 
       .project-contact-strip .left {
@@ -511,13 +524,19 @@
         align-items: center;
       }
 
+      /* ========== SECTION 4.2: PROJECT DETAIL – BURGER OPS ========== */
+
       .project2-section {
         padding: 40px 40px 80px;
         background: #ffffff;
+        box-sizing: border-box;
       }
 
       .project2-header {
-        background: linear-gradient(180deg, #ffbe63 0%, #ffd58a 45%, #fff7eb 100%);
+        background: linear-gradient(180deg,
+            #ffbe63 0%,
+            #ffd58a 45%,
+            #fff7eb 100%);
         border-radius: 24px 24px 0 0;
         padding: 28px 40px;
         display: flex;
@@ -536,6 +555,17 @@
         font-size: 48px;
         font-weight: 700;
         color: #ffffff;
+      }
+
+      .project2-source-link {
+        display: inline;
+        margin: 0;
+        font-size: 18px;
+        color: #2b2622;
+      }
+
+      .project2-source-link:hover {
+        text-decoration: underline;
       }
 
       .project2-icon {
@@ -560,9 +590,16 @@
         border-radius: 0 0 24px 24px;
         padding: 16px 40px 20px;
         text-align: center;
-        font-size: 18px;
+        font-size: 22px;
         line-height: 1.6;
         margin-bottom: 40px;
+      }
+
+      .project2-section-title {
+        text-align: center;
+        font-size: 26px;
+        font-weight: 700;
+        margin: 40px 0 16px;
       }
 
       .project2-row {
@@ -573,8 +610,10 @@
         align-items: flex-start;
       }
 
-      .project2-row--last {
-        margin-bottom: 0;
+      .project2-subheading {
+        font-size: 26px;
+        font-weight: 700;
+        margin: 0 0 16px;
       }
 
       .project2-image {
@@ -582,6 +621,7 @@
         overflow: hidden;
         box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
         background: #f5f5f5;
+        margin-top: 10px;
       }
 
       .project2-image img {
@@ -590,32 +630,52 @@
       }
 
       .project2-text {
-        font-size: 18px;
+        font-size: 22px;
         line-height: 1.8;
       }
+
+      .project2-row--last {
+        margin-bottom: 0;
+      }
+
+      /* ========== FOOTER ========== */
 
       .site-footer {
         background: #ffe4c8;
         border-top: 1px solid #e0c9af;
-        padding: 40px 40px 40px;
+        padding: 40px 0;
+        /* 去掉左右 40，只保留上下 */
+        box-sizing: border-box;
       }
 
       .footer-inner {
+        max-width: 1200px;
+        margin: 0 auto;
         display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
-        gap: 48px;
-        font-size: 22px;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 24px;
       }
 
-      .footer-left {
-        width: 50%;
+      .side-card a:hover,
+      .footer-inner a:hover {
+        text-decoration: underline;
+        opacity: 0.85;
       }
+
+
+
+      .footer-left,
+      .footer-right {
+        width: auto;
+      }
+
 
       .footer-right {
-        width: 50%;
         margin-top: 38px;
         line-height: 2.3;
+
       }
 
       .footer-left strong {
@@ -628,9 +688,12 @@
         margin-top: 24px;
         display: flex;
         gap: 20px;
+        justify-content: center;
       }
 
+
       .footer-icons img {
+        width: auto;
         height: 35px;
         display: block;
       }
@@ -640,6 +703,7 @@
   <body>
     <div class="frame">
       <div class="page-wrapper">
+        <!-- SECTION 1: HERO + NAV -->
         <header class="hero-top" id="home">
           <div class="hero-inner">
             <div class="portfolio-title-box">
@@ -652,12 +716,13 @@
           <div class="nav-inner">
             <a class="nav-link" href="#home">HOME</a>
             <a class="nav-link" href="#resume">RESUME</a>
-            <a class="nav-link" href="#project1">PROJECT 1</a>
+            <a class="nav-link nav-link--active" href="#project1">PROJECT 1</a>
             <a class="nav-link" href="#projects">PROJECT 2</a>
           </div>
         </div>
 
-        <main>
+        <div class="content">
+          <!-- SECTION 2: HELLO -->
           <section class="hello-section" id="hello">
             <div class="hello-card">
               <div class="hello-photo-frame">
@@ -671,58 +736,73 @@
                   <img src="Frame 49 (1).png" alt="Hello, I'm Kitty">
                 </div>
                 <div class="hello-body">
-                  I’m a second-year Global Business and Digital Arts student at the
-                  University of Waterloo, motivated and detail-oriented, passionate
-                  about creating intuitive and meaningful digital experiences. I enjoy
-                  turning ideas into clear, functional designs and learning through
-                  collaboration. Curious and adaptable, I’m always exploring new ways
-                  to connect creativity with usability in every project.
+                  I’m a second-year Global Business and Digital Arts student at
+                  the University of Waterloo, motivated and detail-oriented,
+                  passionate about creating intuitive and meaningful digital
+                  experiences. I enjoy turning ideas into clear, functional
+                  designs and learning through collaboration. Curious and
+                  adaptable, I’m always exploring new ways to connect creativity
+                  with usability in every project.
                 </div>
               </div>
             </div>
           </section>
 
+          <!-- SECTION 3: PROJECT CARDS (THUMBNAILS) -->
           <section class="projects-section" id="projects">
             <div class="projects-grid">
+              <!-- 卡片 1：hotpot（project1） -->
               <a href="#project1" class="project-card-link">
-                <div class="project-card project-card--left">
+                <div class="project-card">
+                  <img src="Group 27 (2).png" alt="Haidilao hotpot rebranding preview">
                   <div class="project-number">01</div>
                 </div>
               </a>
 
+              <!-- 卡片 2：Burger Ops（project2） -->
               <a href="#project2" class="project-card-link">
-                <div class="project-card project-card--middle">
+                <div class="project-card">
+                  <img src="Frame 47 1.png" alt="Burger Ops card game preview">
                   <div class="project-number">02</div>
                 </div>
               </a>
 
-              <div class="project-card project-card--right">
+              <!-- 卡片 3：占位 -->
+              <div class="project-card">
+                <img src="project 3.png" alt="Third project preview">
                 <div class="project-number">03</div>
               </div>
             </div>
+
           </section>
 
+          <!-- SECTION 4: RESUME -->
           <section class="resume-section" id="resume">
             <div class="resume-header">
-              <div class="resume-photo-wrap">
-                <img src="_DSC5008 Large.jpeg" alt="Portrait of Kitty Chen">
+              <div class="resume-header-left">
+                <div class="resume-photo-wrap">
+                  <img src="_DSC5008 Large.jpeg" alt="Portrait of Kitty Chen">
+                </div>
               </div>
 
               <div class="resume-header-right">
                 <h1><strong>I’m Kitty Chen.</strong></h1>
                 <p class="resume-intro">
-                  I’m a GBDA student and emerging UI/UX designer who cares about how people feel
-                  when they use a product. I’m drawn to soft visuals, clear structure, and calm
-                  interactions—and whether it’s a hotpot brand, a pet shop interface, or an
-                  educational card game, I aim to create experiences that are simple, comfortable,
-                  and quietly delightful.
+                  I’m a GBDA student and emerging UI/UX designer who cares about
+                  how people feel when they use a product. I’m drawn to soft
+                  visuals, clear structure, and calm interactions—and whether
+                  it’s a hotpot brand, a pet shop interface, or an educational
+                  card game, I aim to create experiences that are simple,
+                  comfortable, and quietly delightful.
                 </p>
               </div>
             </div>
 
             <div class="resume-body">
+              <!-- 左侧：Skills + Experience -->
               <div class="experience-block">
                 <div class="section-pill">Skills Overview</div>
+
                 <table class="skills-table">
                   <thead>
                     <tr>
@@ -751,15 +831,26 @@
                 </table>
 
                 <div class="section-pill">Experience</div>
+
                 <article class="job">
                   <div class="job-header">
                     <div class="job-title">High School Yearbook Designer</div>
                     <div class="job-date">June, 2023</div>
                   </div>
                   <ul>
-                    <li>Designed page layouts, typography, and image arrangements for the school yearbook, ensuring visual consistency and storytelling flow.</li>
-                    <li>Coordinated with photographers and editors to manage content deadlines and maintain design quality.</li>
-                    <li>Enhanced overall publication aesthetics, resulting in positive student feedback and increased yearbook sales.</li>
+                    <li>
+                      Designed page layouts, typography, and image arrangements
+                      for the school yearbook, ensuring visual consistency and
+                      storytelling flow.
+                    </li>
+                    <li>
+                      Coordinated with photographers and editors to manage
+                      content deadlines and maintain design quality.
+                    </li>
+                    <li>
+                      Enhanced overall publication aesthetics, resulting in
+                      positive student feedback and increased yearbook sales.
+                    </li>
                   </ul>
                 </article>
 
@@ -769,9 +860,18 @@
                     <div class="job-date">September, 2025</div>
                   </div>
                   <ul>
-                    <li>Redesigned a small Canadian company’s website to make it easier to use and visually more consistent.</li>
-                    <li>Created wireframes and layout ideas in Figma and Adobe XD, helping the team improve navigation and page structure.</li>
-                    <li>Worked with teammates to design a responsive layout that looks good on both web and mobile.</li>
+                    <li>
+                      Redesigned a small Canadian company’s website to make it
+                      easier to use and visually more consistent.
+                    </li>
+                    <li>
+                      Created wireframes and layout ideas in Figma and Adobe XD,
+                      helping the team improve navigation and page structure.
+                    </li>
+                    <li>
+                      Worked with teammates to design a responsive layout that
+                      looks good on both web and mobile.
+                    </li>
                   </ul>
                 </article>
 
@@ -781,25 +881,40 @@
                     <div class="job-date">September, 2025</div>
                   </div>
                   <ul>
-                    <li>Created a card game that helps players learn service design methods in a fun and interactive way.</li>
-                    <li>Designed icons and UI mockups to make the game easy to understand and visually engaging.</li>
-                    <li>Tested the game with users and improved the design based on feedback.</li>
+                    <li>
+                      Created a card game that helps players learn service
+                      design methods in a fun and interactive way.
+                    </li>
+                    <li>
+                      Designed icons and UI mockups to make the game easy to
+                      understand and visually engaging.
+                    </li>
+                    <li>
+                      Tested the game with users and improved the design based
+                      on feedback.
+                    </li>
                   </ul>
                 </article>
               </div>
 
+              <!-- 右列：侧栏 -->
               <aside class="side-column">
                 <div class="side-card">
                   <div class="side-card-title">Education</div>
                   <h3>University of Waterloo</h3>
                   <p>Global Business and Digital Arts, Year 2</p>
-                  <p>Expected Graduation:<br>April, 2028</p>
-                  <p style="margin-top:10px;"><strong>Unionville High School</strong><br>2021 – 2024</p>
+                  <p>
+                    Expected Graduation:<br>
+                    April, 2028
+                  </p>
+                  <p style="margin-top: 10px">
+                    <strong>Unionville High School</strong><br>2021 – 2024
+                  </p>
                 </div>
 
                 <div class="side-card">
                   <div class="side-card-title">Language</div>
-                  <p>Chinese &nbsp; • &nbsp; English</p>
+                  <p>Chinese &nbsp;&nbsp;•&nbsp;&nbsp; English</p>
                 </div>
 
                 <div class="side-card">
@@ -816,7 +931,10 @@
                   <div class="side-card-title">Contact</div>
                   <ul class="tag-list">
                     <li>📞 647–607–4551</li>
-                    <li>✉️ <a href="mailto:y555chen@uwaterloo.ca">y555chen@uwaterloo.ca</a></li>
+                    <li>
+                      ✉️
+                      <a href="mailto:y555chen@uwaterloo.ca">y555chen@uwaterloo.ca</a>
+                    </li>
                     <li>📍 316 Batavia Pl, Waterloo, ON N2L 3W2</li>
                   </ul>
                 </div>
@@ -824,6 +942,7 @@
             </div>
           </section>
 
+          <!-- PROJECT DETAIL – HOTPOT -->
           <section class="project-detail-section" id="project1">
             <div class="project-detail-hero">
               <img src="hotpot background pic.png" alt="Hotpot rebranding hero">
@@ -833,11 +952,11 @@
               <h2>01 HOTPOT REBRANDING</h2>
               <h3>“Hi, Gather Round” — Rebranding Haidilao Hotpot</h3>
               <p>
-                I developed a new brand identity for Haidilao that keeps the original
-                “Hi” mark but reframes it as warm chopsticks and rising steam in true
-                Chinese red. The refreshed system pairs the logo with a modern visual
-                language, story, and social strategy that share the warmth of hotpot
-                with a global audience.
+                I developed a new brand identity for Haidilao that keeps the
+                original “Hi” mark but reframes it as warm chopsticks and rising
+                steam in true Chinese red. The refreshed system pairs the logo
+                with a modern visual language, story, and social strategy that
+                share the warmth of hotpot with a global audience.
               </p>
             </div>
 
@@ -845,56 +964,66 @@
               <div class="project-panel project-visual-panel">
                 <img src="logo system.png" alt="Haidilao logo system exploration">
               </div>
+
               <div class="project-panel">
                 <h4>01 Logo design</h4>
                 <p>
-                  In the refreshed identity, the Haidilao logo works as a small system
-                  rather than a single mark. I explored multiple versions on red, white,
-                  and transparent backgrounds so the logo can flex across packaging,
-                  signage, and digital screens. At the core, the familiar “Hi” remains,
-                  but the H is redrawn as a pair of chopsticks with a small hint of steam,
-                  subtly referencing hotpot and sharing food.
+                  In the refreshed identity, the Haidilao logo works as a small
+                  system rather than a single mark. I explored multiple versions
+                  on red, white, and transparent backgrounds so the logo can
+                  flex across packaging, signage, and digital screens. At the
+                  core, the familiar “Hi” remains, but the H is redrawn as a
+                  pair of chopsticks with a small hint of steam, subtly
+                  referencing hotpot and sharing food.
                 </p>
                 <p>
-                  I tuned the main red to a truer “Chinese red,” bringing in a clear
-                  cultural reference while emphasizing warmth, celebration, and welcome.
+                  I tuned the main red to a truer “Chinese red,” bringing in a
+                  clear cultural reference while emphasizing warmth,
+                  celebration, and welcome.
                 </p>
               </div>
             </div>
 
             <div class="project-detail-grid-bottom">
+              <!-- 左边：Design process -->
               <div class="project-panel">
                 <h4>02 Design process</h4>
                 <p>
-                  This section documents my visual exploration for the new Haidilao
-                  identity. I moved from rough pencil sketches to vector explorations,
-                  testing different ways of hiding chopsticks and steam inside the “Hi”
-                  mark while staying readable at small sizes.
+                  This section documents my visual exploration for the new
+                  Haidilao identity. I moved from rough pencil sketches to
+                  vector explorations, testing different ways of hiding
+                  chopsticks and steam inside the “Hi” mark while staying
+                  readable at small sizes.
                 </p>
                 <p>
-                  I then built a flexible digital system that can live across web,
-                  app, and print touchpoints, keeping the forms round, friendly, and
-                  easy to recognize.
+                  I then built a flexible digital system that can live across
+                  web, app, and print touchpoints, keeping the forms round,
+                  friendly, and easy to recognize.
                 </p>
 
-                <div class="project-tag-row">
-                  <span class="color-chip color-chip--red">#DE2910</span>
-                  <span class="color-chip color-chip--white">#FFFFFF</span>
-                  <span class="type-chip">Poppins</span>
+                <div class="project-tag-box">
+                  <div class="project-tag-row">
+                    <span class="color-chip color-chip--red">#DE2910</span>
+                    <span class="color-chip color-chip--white">#FFFFFF</span>
+                    <span class="type-chip">Poppins</span>
+                  </div>
                 </div>
               </div>
+
+              <!-- 右边：Brand research -->
               <div class="project-panel">
                 <h4>03 Brand research</h4>
                 <p>
-                  Before designing, I researched Haidilao’s history, audience, and
-                  current positioning. I looked at how the brand communicates warmth,
-                  service, and Chinese hotpot culture today, and analyzed what parts
-                  of the identity should be preserved versus refreshed.
+                  Before designing, I researched Haidilao’s history, audience,
+                  and current positioning. I looked at how the brand
+                  communicates warmth, service, and Chinese hotpot culture
+                  today, and analyzed what parts of the identity should be
+                  preserved versus refreshed.
                 </p>
                 <p>
-                  This research helped me define a direction that keeps the brand’s
-                  friendliness and hospitality, while making the visuals feel more
-                  contemporary and globally approachable.
+                  This research helped me define a direction that keeps the
+                  brand’s friendliness and hospitality, while making the visuals
+                  feel more contemporary and globally approachable.
                 </p>
 
                 <div class="project-photo-box">
@@ -904,77 +1033,87 @@
             </div>
           </section>
 
+          <!-- PROJECT DETAIL – BURGER OPS -->
           <section class="project2-section" id="project2">
+            <!-- 顶部橘色头部 -->
             <div class="project2-header">
               <div class="project2-number">02</div>
-              <div class="project2-title">Burger Ops</div>
+
+              <div>
+                <div class="project2-title">Burger Ops</div>
+              </div>
+
               <div class="project2-icon">🍔</div>
             </div>
 
+            <!-- 副标题浅色条 -->
             <div class="project2-subtitle">
-              An Educational Card Game Experience as a group project – content based on
+              An Educational Card Game Experience as a group project – content
+              based on
               <a class="project2-source-link" href="https://learning-oreilly-com.proxy.lib.uwaterloo.ca/library/view/this-is-service/9781492039587/" target="_blank">
                 <em>This Is Service Design Methods</em>
               </a>
             </div>
 
+            <!-- Overview -->
             <div class="project2-row">
               <div class="project2-image">
                 <img src="cover of burger ops.JPG" alt="Burger Ops overview photo">
               </div>
               <div class="project2-text">
                 <h3 class="project2-subheading">Overview</h3>
-                Burger Ops is an educational card game my group designed to teach service design methods in a playful, hands-on way. Set in a fast-food
-                franchise during a supply chain crisis, players act as managers racing to
-                assemble their signature burgers while dealing with real-world service design
-                challenges. The game combines a competitive Phase 1 with a collaborative Phase 2,
-                where players ultimately work together to keep the franchise “alive,” reinforcing
-                both individual problem-solving and teamwork.
+                Burger Ops is an educational card game my group designed to
+                teach service design methods in a playful, hands-on way. Set in
+                a fast-food franchise during a supply chain crisis, players act
+                as managers racing to assemble their signature burgers while
+                dealing with real-world service design challenges. The game
+                combines a competitive Phase 1 with a collaborative Phase 2,
+                where players ultimately work together to keep the franchise
+                “alive,” reinforcing both individual problem-solving and
+                teamwork.
               </div>
             </div>
 
+            <!-- Design rationale -->
             <div class="project2-row">
               <div class="project2-image">
                 <img src="burger ops ingredient.png" alt="Burger Ops ingredient cards">
               </div>
               <div class="project2-text">
                 <h3 class="project2-subheading">Design rationale</h3>
-                Visually, we used the burger as the core metaphor to make abstract service
-                design concepts more concrete and approachable. Each card type—ingredients,
-                obstacles, shipments, orders—has its own layout and visual hierarchy so
-                players can quickly recognize its function during the game. Colours, icons,
-                and typography are chosen to feel like a fast-food brand (warm, bold,
-                friendly) while still being clean enough to support reading, debating, and
-                checking methods from the book. The ingredient stacks and burger layers give
-                a clear sense of progress, helping players literally “see” their learning and
-                strategy building up over time.
+                Visually, we used the burger as the core metaphor to make
+                abstract service design concepts more concrete and approachable.
+                Each card type—ingredients, obstacles, shipments, orders—has its
+                own layout and visual hierarchy so players can quickly recognize
+                its function during the game. Colours, icons, and typography are
+                chosen to feel like a fast-food brand (warm, bold, friendly)
+                while still being clean enough to support reading, debating, and
+                checking methods from the book. The ingredient stacks and burger
+                layers give a clear sense of progress, helping players literally
+                “see” their learning and strategy building up over time.
               </div>
             </div>
 
+            <!-- Design process -->
             <div class="project2-row project2-row--last">
               <div class="project2-text">
                 <h3 class="project2-subheading">Design process</h3>
-                We began by mapping the learning objectives: which service design methods to
-                cover and how players would practice them through discussion, debate, and
-                decision-making. From there, we designed the competitive-then-collaborative
-                structure, card types, and win conditions to reinforce those objectives.
-                We iterated on the rules, facilitator notes, and quick reference guide—
-                testing how easily players understood the flow—then refined the wording,
-                layout, and information hierarchy so the learning stayed clear and never got
-                buried in complexity.
+                We started by defining the learning objectives—what service design methods to cover and how players would practise them through discussion and decision-making. Then we built a competitive-to-collaborative structure, card types, and win conditions around those goals. After testing the rules, facilitator notes, and quick reference guide, we refined the wording, layout, and information hierarchy so the flow stayed clear and never felt overwhelming.
               </div>
               <div class="project2-image">
                 <img src="burger ops design process.jpg" alt="Burger Ops design process board">
               </div>
             </div>
           </section>
-        </main>
+        </div>
 
+        <!-- FOOTER -->
         <section class="site-footer">
           <div class="footer-inner">
             <div class="footer-left">
               <strong>Get in touch with me</strong>
               <div>316 Batavia Pl, Waterloo, ON N2L 3W2</div>
+
               <div class="footer-icons">
                 <img src="contact info icon.png" alt="Contact information icon">
               </div>
@@ -982,7 +1121,10 @@
 
             <div class="footer-right">
               <div>📞 647–607–4551</div>
-              <div>✉️ <a href="mailto:y555chen@uwaterloo.ca">y555chen@uwaterloo.ca</a></div>
+              <div>
+                ✉️
+                <a href="mailto:y555chen@uwaterloo.ca">y555chen@uwaterloo.ca</a>
+              </div>
             </div>
           </div>
         </section>
