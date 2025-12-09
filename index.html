@@ -109,14 +109,6 @@
         text-decoration: underline;
       }
 
-      .project-card {
-        transition: transform 0.25s;
-      }
-
-      .project-card:hover {
-        transform: scale(1.05);
-      }
-
       /* ========== SECTION 2.1: HELLO ========== */
 
       .hello-section {
@@ -190,6 +182,11 @@
         border-radius: 24px;
         overflow: hidden;
         height: 500px;
+        transition: transform 0.25s;
+      }
+
+      .project-card:hover {
+        transform: scale(1.05);
       }
 
       .project-card img {
@@ -418,7 +415,6 @@
         padding: 22px 24px 24px;
         font-size: 22px;
         line-height: 1.8;
-        
       }
 
       .project-photo-box {
@@ -654,7 +650,6 @@
         display: block;
       }
 
-
       .side-card a:hover,
       .footer-inner a:hover {
         text-decoration: underline;
@@ -710,10 +705,9 @@
             </div>
           </section>
 
-          <!-- SECTION 3: PROJECT CARDS (THUMBNAILS) -->
+          <!-- SECTION 3: PROJECT CARDS-->
           <section class="projects-section" id="projects">
             <div class="projects-grid">
-              <!-- 卡片 1：hotpot（project1） -->
               <a href="#project1" class="project-card-link">
                 <div class="project-card">
                   <img src="Group 27 (2).png" alt="Haidilao hotpot rebranding preview">
@@ -721,7 +715,6 @@
                 </div>
               </a>
 
-              <!-- 卡片 2：Burger Ops（project2） -->
               <a href="#project2" class="project-card-link">
                 <div class="project-card">
                   <img src="Frame 47 1.png" alt="Burger Ops card game preview">
@@ -729,7 +722,6 @@
                 </div>
               </a>
 
-              <!-- 卡片 3：占位 -->
               <div class="project-card">
                 <img src="project 3.png" alt="Third project preview">
                 <div class="project-number">03</div>
@@ -761,7 +753,7 @@
             </div>
 
             <div class="resume-body">
-              <!-- 左侧：Skills + Experience -->
+              <!-- Skills + Experience -->
               <div class="experience-block">
                 <div class="section-pill">Skills Overview</div>
 
@@ -859,7 +851,6 @@
                 </article>
               </div>
 
-              <!-- 右列：侧栏 -->
               <aside class="side-column">
                 <div class="side-card">
                   <div class="side-card-title">Education</div>
@@ -904,7 +895,7 @@
             </div>
           </section>
 
-          <!-- PROJECT DETAIL – HOTPOT -->
+          <!-- PROJECT 1 – HOTPOT -->
           <section class="project-detail-section" id="project1">
             <div class="project-detail-hero">
               <img src="hotpot background pic.png" alt="Hotpot rebranding hero">
@@ -947,7 +938,7 @@
             </div>
 
             <div class="project-detail-grid-bottom">
-              <!-- 左边：Design process -->
+              <!-- Design process -->
               <div class="project-panel">
                 <h4>02 Design process</h4>
                 <p>
@@ -972,7 +963,7 @@
                 </div>
               </div>
 
-              <!-- 右边：Brand research -->
+              <!-- Brand research -->
               <div class="project-panel">
                 <h4>03 Brand research</h4>
                 <p>
@@ -987,7 +978,6 @@
                   brand’s friendliness and hospitality, while making the visuals
                   feel more contemporary and globally approachable.
                 </p>
-
                 <div class="project-photo-box">
                   <img src="barnd research pic.png" alt="Brand research snapshots">
                 </div>
@@ -997,7 +987,6 @@
 
           <!-- PROJECT DETAIL – BURGER OPS -->
           <section class="project2-section" id="project2">
-            <!-- 顶部橘色头部 -->
             <div class="project2-header">
               <div class="project2-number">02</div>
 
@@ -1007,8 +996,6 @@
 
               <div class="project2-icon">🍔</div>
             </div>
-
-            <!-- 副标题浅色条 -->
             <div class="project2-subtitle">
               An Educational Card Game Experience as a group project – content
               based on
@@ -1084,14 +1071,11 @@
                 </div>
               </div>
             </div>
-
-            <!-- 最下面的 icon -->
             <div class="footer-icons">
               <img src="contact info icon.png" alt="Contact information icon">
             </div>
           </div>
         </section>
-
       </div>
     </div>
   </body>
